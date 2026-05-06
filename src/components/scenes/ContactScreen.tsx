@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useCallback } from "react";
-import { Copy, Check, Code2, Briefcase, Mail } from "lucide-react";
+import { Copy, Check, Code2, Briefcase, Mail, Download } from "lucide-react";
 import type { PortfolioProfile } from "@/types/portfolio";
 
 const EMAIL = "allipuramsamanyu@gmail.com";
@@ -159,6 +159,21 @@ export function ContactScreen({ profile }: { profile: PortfolioProfile }) {
                         </motion.a>
                       );
                     })}
+                    
+                    <motion.a
+                      href="/samanyu_resume.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="interactive"
+                      whileHover={{ x: 4 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-neon-purple/30 bg-neon-purple/10 px-4 py-3.5 text-sm font-medium text-white transition-all hover:bg-neon-purple/20 hover:border-neon-purple/50 shadow-[0_0_15px_rgba(155,92,255,0.2)]"
+                    >
+                      <span className="flex items-center gap-3">
+                        <Download className="h-4 w-4 text-neon-purple" />
+                        Resume
+                      </span>
+                    </motion.a>
                   </div>
                 </div>
               </div>

@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight, Zap, Download } from "lucide-react";
 import type { PortfolioProfile } from "@/types/portfolio";
 
 export function HeroScreen({
@@ -93,7 +93,7 @@ export function HeroScreen({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65 }}
-          className="mt-10"
+          className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6"
         >
           <button
             type="button"
@@ -105,6 +105,17 @@ export function HeroScreen({
             <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1" />
             <div className="absolute inset-0 bg-gradient-to-r from-neon-purple via-accent-magenta to-electric-blue opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           </button>
+
+          <a
+            href="/samanyu_resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="interactive"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/10 bg-white/5 px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:border-neon-purple/50 hover:bg-neon-purple/10 hover:scale-[1.03] active:scale-[0.98]"
+          >
+            <span className="relative z-10">Download Resume</span>
+            <Download className="relative z-10 h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:text-neon-purple" />
+          </a>
         </motion.div>
 
         {/* Stats row */}

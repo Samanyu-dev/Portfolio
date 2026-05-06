@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sora, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -72,6 +73,7 @@ export default function RootLayout({
         style={{ background: "#07060e", color: "#f0eeff" }}
       >
         <ThemeProvider>{children}</ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

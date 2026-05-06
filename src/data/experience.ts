@@ -26,7 +26,7 @@ export const experience: Experience[] = [
     tags: ["Python", "Instacart API", "Walmart API", "Automation"]
   },
   {
-    role: "App Developer",
+    role: "Flutter App Developer",
     company: "BITS Hyderabad",
     period: "2025",
     location: "Hyderabad, India",
