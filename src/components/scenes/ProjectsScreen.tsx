@@ -372,7 +372,7 @@ function FocusExperience({ project, onClose }: { project: PortfolioRepo; onClose
                 <div>
                   <h4 className="font-mono text-[10px] uppercase tracking-[0.4em] text-text-muted mb-4">01 // The Problem</h4>
                   <p className="text-xl leading-relaxed text-text-secondary/90 italic">
-                    "{project.narrative.problem || "Bridging the gap between conceptual complexity and intuitive user interaction."}"
+                    &ldquo;{project.narrative.problem || "Bridging the gap between conceptual complexity and intuitive user interaction."}&rdquo;
                   </p>
                 </div>
 

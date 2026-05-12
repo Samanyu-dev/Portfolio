@@ -386,10 +386,12 @@ function finalizeRepo(
     category,
     discipline: prepared.discipline,
     accent,
+    accentColor: prepared.override?.accentColor || accent,
     complexity: {
       score: complexityScore,
       label: complexityLabel(complexityScore)
     },
+    featuredBias: prepared.featuredBias,
     stack: prepared.stack,
     topics: prepared.repo.topics,
     metrics: {

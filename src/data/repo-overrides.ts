@@ -15,6 +15,7 @@ export type RepoOverride = {
   categoryHint?: RepoCategory;
   featuredReason?: string;
   demoUrl?: string;
+  accentColor?: "violet" | "cyan" | "emerald" | "orange";
 };
 
 export const repoOverrides: Record<string, RepoOverride> = {

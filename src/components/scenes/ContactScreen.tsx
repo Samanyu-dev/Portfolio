@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useCallback, useEffect } from "react";
+import Image from "next/image";
 import { Copy, Check, Code2, Briefcase, Mail, Download, Terminal, Wifi, Shield, Cpu, ExternalLink } from "lucide-react";
 import type { PortfolioProfile } from "@/types/portfolio";
 
@@ -90,9 +91,11 @@ export function ContactScreen({ profile }: { profile: PortfolioProfile }) {
               <div className="p-8 sm:p-12">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="relative">
-                    <img
+                    <Image
                       src={profile.avatarUrl}
                       alt={profile.name}
+                      width={80}
+                      height={80}
                       className="h-20 w-20 rounded-[1.5rem] border border-white/10 object-cover shadow-2xl"
                     />
                     <div className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full border-4 border-[#0a0a0f] bg-emerald-500 shadow-glow-emerald" />
