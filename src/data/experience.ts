@@ -16,7 +16,7 @@ export const experience: Experience[] = [
   {
     role: "Back End Developer",
     company: "NOSH Euphotic Labs",
-    period: "May 2025 - Sep 2026",
+    period: "Sep 2025 - Oct 2026",
     location: "Remote",
     bullets: [
       "Led a team building a grocery ordering system",
@@ -28,7 +28,7 @@ export const experience: Experience[] = [
   {
     role: "Flutter App Developer",
     company: "BITS Hyderabad",
-    period: "2025",
+    period: "Oct 2025 - Feb 2026",
     location: "Hyderabad, India",
     bullets: [
       "Built Flutter app experiences for campus-focused workflows",
@@ -40,7 +40,7 @@ export const experience: Experience[] = [
   {
     role: "AI Intern",
     company: "Swecha Foundation",
-    period: "2025",
+    period: "May 2025 - Aug 2025",
     location: "Hyderabad, India",
     bullets: [
       "Worked with local AI model workflows using Ollama",
@@ -52,7 +52,7 @@ export const experience: Experience[] = [
   {
     role: "Full Stack Intern",
     company: "Blueberry Digital Labs",
-    period: "2024",
+    period: "May 2024 - Aug 2024",
     location: "Hyderabad, India",
     bullets: [
       "Developed responsive interfaces with React.js",

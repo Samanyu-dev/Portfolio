@@ -1,18 +1,19 @@
 "use client";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useRef, useMemo, useCallback, useEffect } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import * as THREE from "three";
+import { motion as motion3d } from "framer-motion-3d";
 
 /* ─────────────────────────────────────────────
-   Wireframe globe with glowing arcs & dots
+   Globe constants
    ───────────────────────────────────────────── */
 
-const GLOBE_RADIUS = 2.4;
-const DOT_COUNT = 280;
-const ARC_COUNT = 6;
+const GLOBE_RADIUS = 2.6;
+const DOT_COUNT = 350;
+const ARC_COUNT = 8;
 
-// Connection points — major tech hubs
+/* ── Connection points — major tech hubs ── */
 const CONNECTION_POINTS: [number, number][] = [
   [28.6, 77.2],   // Delhi (home)
   [37.7, -122.4], // San Francisco
@@ -35,7 +36,7 @@ function latLonToVec3(lat: number, lon: number, radius: number): THREE.Vector3 {
 }
 
 /* ── Globe dots ── */
-function GlobeDots() {
+function GlobeDots({ mode }: { mode: string }) {
   const pointsRef = useRef<THREE.Points>(null);
 
   const geometry = useMemo(() => {
@@ -45,10 +46,9 @@ function GlobeDots() {
 
     const purple = new THREE.Color("#9b5cff");
     const blue = new THREE.Color("#00d4ff");
-    const white = new THREE.Color("#e0dcff");
+    const white = new THREE.Color("#ffffff");
 
     for (let i = 0; i < DOT_COUNT; i++) {
-      // Fibonacci sphere distribution
       const y = 1 - (i / (DOT_COUNT - 1)) * 2;
       const radiusAtY = Math.sqrt(1 - y * y);
       const theta = ((Math.sqrt(5) - 1) / 2) * i * Math.PI * 2;
@@ -57,9 +57,9 @@ function GlobeDots() {
       positions[i * 3 + 1] = y * GLOBE_RADIUS;
       positions[i * 3 + 2] = Math.sin(theta) * radiusAtY * GLOBE_RADIUS;
 
-      sizes[i] = Math.random() * 2.5 + 0.8;
+      sizes[i] = Math.random() * 3.0 + 1.2;
 
-      const color = Math.random() > 0.7 ? blue : Math.random() > 0.4 ? purple : white;
+      const color = Math.random() > 0.8 ? blue : Math.random() > 0.5 ? purple : white;
       colors[i * 3] = color.r;
       colors[i * 3 + 1] = color.g;
       colors[i * 3 + 2] = color.b;
@@ -74,18 +74,23 @@ function GlobeDots() {
 
   const material = useMemo(() => {
     return new THREE.ShaderMaterial({
-      uniforms: { uTime: { value: 0 } },
+      uniforms: { 
+        uTime: { value: 0 },
+        uMode: { value: mode === "neural" ? 1.0 : mode === "system" ? 2.0 : 0.0 }
+      },
       vertexShader: `
         attribute float size;
         attribute vec3 color;
         varying vec3 vColor;
         varying float vAlpha;
         uniform float uTime;
+        uniform float uMode;
         void main() {
           vColor = color;
-          vAlpha = 0.35 + 0.25 * sin(uTime * 0.5 + position.x * 2.0);
+          float speed = uMode > 1.5 ? 1.2 : uMode > 0.5 ? 0.8 : 0.2;
+          vAlpha = 0.4 + 0.3 * sin(uTime * speed + position.x * 0.5 + position.y * 0.5);
           vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-          gl_PointSize = size * (200.0 / -mvPosition.z);
+          gl_PointSize = size * (300.0 / -mvPosition.z);
           gl_Position = projectionMatrix * mvPosition;
         }
       `,
@@ -95,15 +100,15 @@ function GlobeDots() {
         void main() {
           float d = length(gl_PointCoord - vec2(0.5));
           if (d > 0.5) discard;
-          float glow = smoothstep(0.5, 0.0, d);
-          gl_FragColor = vec4(vColor, glow * vAlpha);
+          float strength = 1.0 - (d * 2.0);
+          gl_FragColor = vec4(vColor, strength * vAlpha);
         }
       `,
       transparent: true,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
     });
-  }, []);
+  }, [mode]);
 
   useFrame(({ clock }) => {
     if (material.uniforms) {
@@ -120,10 +125,10 @@ function ConnectionArcs() {
 
   const arcData = useMemo(() => {
     const result: { points: THREE.Vector3[]; color: string }[] = [];
-    const colors = ["#9b5cff", "#00d4ff", "#ff3cac", "#9b5cff", "#00d4ff", "#ff3cac"];
+    const colors = ["#9b5cff", "#00d4ff", "#ff3cac", "#ffffff"];
 
     for (let i = 0; i < ARC_COUNT; i++) {
-      const from = CONNECTION_POINTS[0]; // Delhi — home
+      const from = CONNECTION_POINTS[0];
       const to = CONNECTION_POINTS[(i % (CONNECTION_POINTS.length - 1)) + 1];
 
       const start = latLonToVec3(from[0], from[1], GLOBE_RADIUS);
@@ -131,15 +136,14 @@ function ConnectionArcs() {
 
       const mid = new THREE.Vector3().addVectors(start, end).multiplyScalar(0.5);
       const dist = start.distanceTo(end);
-      mid.normalize().multiplyScalar(GLOBE_RADIUS + dist * 0.35);
+      mid.normalize().multiplyScalar(GLOBE_RADIUS + dist * 0.4);
 
       const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
-      result.push({ points: curve.getPoints(48), color: colors[i % colors.length] });
+      result.push({ points: curve.getPoints(64), color: colors[i % colors.length] });
     }
     return result;
   }, []);
 
-  // Build lines imperatively to avoid JSX <line> / SVG conflict
   useEffect(() => {
     const group = groupRef.current;
     if (!group) return;
@@ -150,8 +154,8 @@ function ConnectionArcs() {
       const mat = new THREE.LineDashedMaterial({
         color,
         transparent: true,
-        opacity: 0.5,
-        dashSize: 0.15,
+        opacity: 0.6,
+        dashSize: 0.2,
         gapSize: 0.1,
       });
       const line = new THREE.Line(geo, mat);
@@ -173,8 +177,7 @@ function ConnectionArcs() {
     if (groupRef.current) {
       groupRef.current.children.forEach((child, i) => {
         if (child instanceof THREE.Line && child.material) {
-          // dashOffset exists at runtime on LineDashedMaterial
-          (child.material as any).dashOffset = -clock.getElapsedTime() * 0.4 - i * 0.5; // eslint-disable-line
+          (child.material as any).dashOffset = -clock.getElapsedTime() * 0.5 - i * 0.3;
         }
       });
     }
@@ -184,14 +187,23 @@ function ConnectionArcs() {
 }
 
 /* ── Wireframe sphere ── */
-function WireframeGlobe() {
+function WireframeGlobe({ mode }: { mode: string }) {
+  const meshRef = useRef<THREE.Mesh>(null);
+  
+  useFrame(({ clock }) => {
+    if (meshRef.current) {
+      const s = 1.0 + Math.sin(clock.getElapsedTime() * (mode === "neural" ? 1.5 : 0.5)) * 0.02;
+      meshRef.current.scale.set(s, s, s);
+    }
+  });
+
   return (
-    <mesh>
-      <sphereGeometry args={[GLOBE_RADIUS, 36, 18]} />
+    <mesh ref={meshRef}>
+      <sphereGeometry args={[GLOBE_RADIUS, 48, 24]} />
       <meshBasicMaterial
-        color="#9b5cff"
+        color={mode === "system" ? "#ffffff" : "#9b5cff"}
         transparent
-        opacity={0.04}
+        opacity={mode === "focus" ? 0.03 : mode === "system" ? 0.15 : 0.08}
         wireframe
       />
     </mesh>
@@ -205,59 +217,80 @@ function HomeMarker() {
 
   useFrame(({ clock }) => {
     if (markerRef.current) {
-      const s = 1 + Math.sin(clock.getElapsedTime() * 2) * 0.3;
+      const s = 1 + Math.sin(clock.getElapsedTime() * 3) * 0.4;
       markerRef.current.scale.set(s, s, s);
     }
   });
 
   return (
-    <mesh ref={markerRef} position={pos}>
-      <sphereGeometry args={[0.06, 12, 12]} />
-      <meshBasicMaterial color="#ff3cac" transparent opacity={0.9} />
-    </mesh>
+    <group position={pos}>
+      <mesh ref={markerRef}>
+        <sphereGeometry args={[0.08, 16, 16]} />
+        <meshBasicMaterial color="#ff3cac" transparent opacity={0.8} />
+      </mesh>
+      <pointLight color="#ff3cac" intensity={2} distance={2} />
+    </group>
   );
 }
 
 /* ── Rotating group ── */
-function GlobeGroup() {
-  const groupRef = useRef<THREE.Group>(null);
+function GlobeGroup({ screen, mode, focusNode }: { screen: string; mode: string; focusNode: string | null }) {
+  const groupRef = useRef<any>(null);
   const { viewport } = useThree();
   const mouse = useRef({ x: 0, y: 0 });
 
-  const handlePointer = useCallback((e: { clientX: number; clientY: number }) => {
-    mouse.current.x = (e.clientX / window.innerWidth - 0.5) * 0.3;
-    mouse.current.y = (e.clientY / window.innerHeight - 0.5) * 0.3;
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      mouse.current.x = (e.clientX / window.innerWidth - 0.5) * 0.4;
+      mouse.current.y = (e.clientY / window.innerHeight - 0.5) * 0.4;
+    };
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
   }, []);
 
   useFrame(({ clock }) => {
     if (groupRef.current) {
       const t = clock.getElapsedTime();
-      // Slow auto-rotation + mouse influence
-      groupRef.current.rotation.y = t * 0.08 + mouse.current.x;
-      groupRef.current.rotation.x = 0.2 + mouse.current.y * 0.5;
+      const baseSpeed = mode === "neural" ? 0.08 : mode === "system" ? 0.12 : 0.02;
+      const speed = focusNode ? baseSpeed * 2.5 : baseSpeed;
+      groupRef.current.rotation.y = t * speed + mouse.current.x;
+      groupRef.current.rotation.x = 0.2 + mouse.current.y * 0.3;
     }
   });
 
-  // Scale based on viewport
-  const scale = Math.min(viewport.width, viewport.height) / 6.5;
+  const targetPos: [number, number, number] = useMemo(() => {
+    if (screen === "home") return [viewport.width * 0.2, -0.2, 0];
+    if (screen === "skills") return [-viewport.width * 0.25, 0.5, -2];
+    if (screen === "projects") return [viewport.width * 0.3, -1, -3];
+    return [0, 0, -5];
+  }, [screen, viewport.width]);
+
+  const scale = Math.min(viewport.width, viewport.height) / (screen === "home" ? 5.5 : 7.0);
+
+  const MotionGroup = motion3d.group as any;
 
   return (
-    <group
+    <MotionGroup
       ref={groupRef}
       scale={scale}
-      position={[viewport.width * 0.22, -0.2, 0]}
-      onPointerMove={(e) => handlePointer(e)}
+      animate={{
+        x: targetPos[0],
+        y: targetPos[1],
+        z: targetPos[2],
+        rotateY: mode === "system" ? Math.PI : 0
+      }}
+      transition={{ type: "spring", stiffness: 30, damping: 20 }}
     >
-      <WireframeGlobe />
-      <GlobeDots />
-      <ConnectionArcs />
+      <WireframeGlobe mode={mode} />
+      <GlobeDots mode={mode} />
+      {mode !== "focus" && <ConnectionArcs />}
       <HomeMarker />
-    </group>
+    </MotionGroup>
   );
 }
 
 /* ── Gradient mesh background (ambient) ── */
-function GradientMesh() {
+function GradientMesh({ mode }: { mode: string }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame(({ clock }) => {
@@ -271,6 +304,7 @@ function GradientMesh() {
     return new THREE.ShaderMaterial({
       uniforms: {
         uTime: { value: 0 },
+        uMode: { value: mode === "neural" ? 1.0 : mode === "system" ? 2.0 : 0.0 }
       },
       vertexShader: `
         varying vec2 vUv;
@@ -281,45 +315,51 @@ function GradientMesh() {
       `,
       fragmentShader: `
         uniform float uTime;
+        uniform float uMode;
         varying vec2 vUv;
-
         vec3 purple = vec3(0.608, 0.361, 1.0);
         vec3 blue   = vec3(0.0, 0.831, 1.0);
         vec3 magenta = vec3(1.0, 0.235, 0.675);
-        vec3 dark   = vec3(0.027, 0.024, 0.055);
-
+        vec3 dark   = vec3(0.01, 0.01, 0.02);
         void main() {
-          float t = uTime * 0.15;
+          float t = uTime * 0.1;
           vec2 uv = vUv;
-
-          // Animated gradient blobs
+          
           float d1 = length(uv - vec2(0.3 + sin(t) * 0.15, 0.7 + cos(t * 0.7) * 0.15));
           float d2 = length(uv - vec2(0.8 + cos(t * 0.5) * 0.1, 0.3 + sin(t * 0.8) * 0.1));
-          float d3 = length(uv - vec2(0.5 + sin(t * 0.3) * 0.2, 0.5 + cos(t * 0.6) * 0.15));
-
+          
           vec3 color = dark;
-          color = mix(color, purple, smoothstep(0.6, 0.0, d1) * 0.15);
-          color = mix(color, blue, smoothstep(0.5, 0.0, d2) * 0.1);
-          color = mix(color, magenta, smoothstep(0.55, 0.0, d3) * 0.08);
-
+          float intensity = uMode > 1.5 ? 0.05 : uMode > 0.5 ? 0.15 : 0.02;
+          
+          color = mix(color, purple, smoothstep(0.7, 0.0, d1) * intensity);
+          color = mix(color, blue, smoothstep(0.6, 0.0, d2) * intensity);
+          
           gl_FragColor = vec4(color, 1.0);
         }
       `,
       depthWrite: false,
     });
-  }, []);
+  }, [mode]);
 
   return (
-    <mesh ref={meshRef} position={[0, 0, -5]} material={material}>
-      <planeGeometry args={[20, 20]} />
+    <mesh ref={meshRef} position={[0, 0, -10]} material={material}>
+      <planeGeometry args={[40, 40]} />
     </mesh>
   );
 }
 
 /* ── Exported component ── */
-export function GlobeBackground() {
+export function GlobeBackground({ 
+  screen = "home", 
+  mode = "neural",
+  focusNode = null 
+}: { 
+  screen?: string; 
+  mode?: string;
+  focusNode?: string | null;
+}) {
   return (
-    <div className="absolute inset-0 z-0" aria-hidden="true">
+    <div className="absolute inset-0 z-0 h-full w-full" aria-hidden="true">
       <Canvas
         camera={{ position: [0, 0, 6], fov: 45 }}
         gl={{
@@ -327,11 +367,12 @@ export function GlobeBackground() {
           alpha: true,
           powerPreference: "high-performance",
         }}
-        dpr={[1, 1.5]}
+        dpr={[1, 2]}
         style={{ pointerEvents: "none" }}
       >
-        <GradientMesh />
-        <GlobeGroup />
+        <ambientLight intensity={0.5} />
+        <GradientMesh mode={mode} />
+        <GlobeGroup screen={screen} mode={mode} focusNode={focusNode} />
       </Canvas>
     </div>
   );

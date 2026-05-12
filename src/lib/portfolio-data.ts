@@ -402,6 +402,8 @@ function finalizeRepo(
       repo: prepared.repo.htmlUrl,
       demo: prepared.override?.demoUrl ?? normalizeDemoUrl(prepared.repo.homepage)
     },
+    htmlUrl: prepared.repo.htmlUrl,
+    homepage: prepared.override?.demoUrl ?? prepared.repo.homepage,
     timeline: {
       createdAt: prepared.repo.createdAt,
       updatedAt: prepared.repo.updatedAt,

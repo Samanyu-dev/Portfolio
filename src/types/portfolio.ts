@@ -66,17 +66,22 @@ export type ProjectNarrative = {
 export type PortfolioRepo = {
   slug: string;
   name: string;
+  displayName?: string;
   title: string;
   summary: string;
+  description?: string;
   useCase: string;
   category: RepoCategory;
   discipline: RepoDiscipline;
   accent: AccentTone;
+  accentColor: AccentTone;
   complexity: {
     score: number;
     label: string;
   };
+  featuredBias: number;
   stack: string[];
+  techStack?: string[];
   topics: string[];
   metrics: {
     stars: number;
@@ -88,12 +93,15 @@ export type PortfolioRepo = {
     repo: string;
     demo?: string;
   };
+  htmlUrl?: string;
+  homepage?: string | null;
   timeline: {
     createdAt: string;
     updatedAt: string;
     pushedAt: string;
   };
   narrative: ProjectNarrative;
+  longNarrative?: string;
   featuredReason: string;
 };
 

@@ -2,52 +2,47 @@ import type { MiniProject, Project } from "@/types";
 
 export const projects: Project[] = [
   {
-    title: "Network Performance",
+    title: "CodeForge AI",
     category: "AI/ML",
-    description:
-      "A deep-learning lab for forecasting network behavior with sequence, convolutional, transformer, and generative model families.",
-    techStack: ["LSTM", "CNN", "Transformers", "GANs", "Autoencoders"],
-    githubUrl: "https://github.com/Samanyu-dev/Network_Performance",
+    description: "Architecting a multi-agent 'AI engineering org' with a cinematic command-center.",
+    techStack: ["React", "FastAPI", "WebSockets", "React Flow"],
+    githubUrl: "https://github.com/Samanyu-dev/codeforge",
     accent: "primary",
     repoStatus: "verified"
   },
   {
-    title: "Crisis Communication Env",
-    category: "AI/ML",
-    description:
-      "A multi-agent reinforcement-learning environment for testing how agents coordinate under crisis-response constraints.",
-    techStack: ["RL", "Multi-agent", "OpenEnv", "NLP"],
-    githubUrl: "https://github.com/Samanyu-dev/crisis_comm_env",
+    title: "Echo",
+    category: "Mobile",
+    description: "Where event invitation design meets cloud-native intelligence and cinematic mobile UX.",
+    techStack: ["Flutter", "Appwrite", "Riverpod", "GoRouter"],
+    githubUrl: "https://github.com/Samanyu-dev/echo",
     accent: "secondary",
     repoStatus: "verified"
   },
   {
-    title: "Self-Driving Car RL",
+    title: "Crisis Command",
     category: "AI/ML",
-    description:
-      "Simulation project exploring behavior cloning and neural-network policies for autonomous driving decisions.",
-    techStack: ["Behavior Cloning", "Neural Networks", "Simulation"],
-    githubUrl: "https://github.com/Samanyu-dev",
+    description: "Multi-turn RL environment for training agents on high-stakes organizational communication.",
+    techStack: ["Python", "RL", "FastAPI", "OpenEnv"],
+    githubUrl: "https://github.com/Samanyu-dev/crisis_comm_env",
     accent: "accent",
-    repoStatus: "not-public"
+    repoStatus: "verified"
+  },
+  {
+    title: "Loomlane",
+    category: "Backend",
+    description: "Customised university merchandise system with a secure, scalable commerce backbone.",
+    techStack: ["MongoDB", "JWT", "OAuth", "Razorpay"],
+    githubUrl: "https://github.com/Samanyu-dev/Loomlane_sam1",
+    accent: "primary",
+    repoStatus: "verified"
   },
   {
     title: "Oracle Agent",
     category: "AI/ML",
-    description:
-      "Grid navigation agent trained to reason about hazards, route choices, and safe reward-seeking behavior.",
-    techStack: ["RL", "Grid Navigation", "Hazard Avoidance", "PyTorch"],
-    githubUrl: "https://github.com/Samanyu-dev",
-    accent: "primary",
-    repoStatus: "not-public"
-  },
-  {
-    title: "MovieNestApp",
-    category: "Mobile",
-    description:
-      "A polished movie discovery app with API-backed content flows and a mobile-first Swift interface.",
-    techStack: ["Swift", "API Integration", "UI/UX"],
-    githubUrl: "https://github.com/Samanyu-dev/MovieNestApp",
+    description: "In a world of noise and uncertainty, only the Oracle sees the path.",
+    techStack: ["Python", "MCTS", "Bayesian", "RL"],
+    githubUrl: "https://github.com/Samanyu-dev/oracle-agent",
     accent: "secondary",
     repoStatus: "verified"
   }
@@ -57,41 +52,31 @@ export const projectFilters = ["All", "AI/ML", "Web", "Backend", "Mobile"] as co
 
 export const miniProjects: MiniProject[] = [
   {
-    title: "robot_vision",
-    description: "Robotics, kinematics, and computer vision demo for camera-based perception.",
+    title: "Robot Vision Lab",
+    description: "Transforming robotic perception math into an interactive engineering story.",
     githubUrl: "https://github.com/Samanyu-dev/robot_vision",
     language: "Python",
     repoStatus: "verified"
   },
   {
-    title: "ExecuBot",
-    description: "Agentic AI concept that turns natural-language instructions into actions.",
-    githubUrl: "https://github.com/Samanyu-dev/ExecuBot",
+    title: "MovieNest",
+    description: "Your ultimate movie discovery companion designed for delight and mobile polish.",
+    githubUrl: "https://github.com/Samanyu-dev/MovieNestApp",
+    language: "Swift",
     repoStatus: "verified"
   },
   {
-    title: "PennyWallet",
-    description: "Planned finance mini tile; public repo was not found under Samanyu-dev.",
-    githubUrl: "https://github.com/Samanyu-dev",
-    repoStatus: "not-public"
-  },
-  {
-    title: "tutordecentra",
-    description: "Decentralized tutoring concept repository.",
-    githubUrl: "https://github.com/Samanyu-dev/tutordecentra",
+    title: "Dream11 Tracker",
+    description: "A motion-rich leaderboard tracking performance through the lens of gamification.",
+    githubUrl: "https://github.com/Samanyu-dev/dream11_ranking",
+    language: "JavaScript",
     repoStatus: "verified"
   },
   {
-    title: "durgapuja",
-    description: "Durga Puja idol makers app built with Dart.",
+    title: "Durga Idol Maker",
+    description: "AI-powered business management for Kolkata's idol artisans.",
     githubUrl: "https://github.com/Samanyu-dev/durgapuja",
     language: "Dart",
     repoStatus: "verified"
-  },
-  {
-    title: "trufides",
-    description: "Planned trust/verification mini tile; public repo was not found under Samanyu-dev.",
-    githubUrl: "https://github.com/Samanyu-dev",
-    repoStatus: "not-public"
   }
 ];

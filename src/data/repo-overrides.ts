@@ -18,210 +18,167 @@ export type RepoOverride = {
 };
 
 export const repoOverrides: Record<string, RepoOverride> = {
-  mobile: {
-    title: "Indic LLM Data Collection App",
-    summary: "Cross-platform mobile app for collecting multilingual, multimodal cultural data to train inclusive Indic Large Language Models.",
-    useCase: "Community-driven initiative by Swecha to gather text, audio, image, and video data from native speakers.",
+  codeforge: {
+    title: "CodeForge AI",
+    summary: "Architecting a multi-agent 'AI engineering org' with a cinematic command-center.",
+    useCase: "Production-grade autonomous agent orchestration and visualization.",
+    discipline: "AI Systems",
+    techStack: ["React", "FastAPI", "WebSockets", "React Flow", "Zustand"],
+    problem: "Visualizing complex autonomous agent interactions often feels static and disconnected from underlying logic.",
+    build: "A high-fidelity command center with dynamic task graphs, real-time agent debates, and a streaming event bus.",
+    outcome: "A cinematic, interactive system that makes AI reasoning observable and immersive.",
+    challenges: [
+      "Managing complex real-time state across multiple agents",
+      "Building a performant, interactive task graph visualization",
+      "Ensuring seamless integration between agent logic and the frontend"
+    ],
+    architecture: ["FastAPI Orchestrator", "React Flow Graph Engine", "WebSockets Event Stream"],
+    featuredBias: 30,
+    featuredReason: "Represents the signature 'AI Engineering Org' vision.",
+    demoUrl: "https://huggingface.co/spaces/Sammy1808/codeforge"
+  },
+  echo: {
+    title: "Echo",
+    summary: "Where event invitation design meets cloud-native intelligence and cinematic mobile UX.",
+    useCase: "Premium event invitation and collaborative workflow platform.",
     discipline: "Mobile Products",
-    techStack: ["Flutter", "Dart", "FastAPI", "SQLite", "Figma", "Geo-tagging"],
-    problem: "Training culturally aware and inclusive Indic LLMs requires authentic, multimodal data from native speakers across India's linguistic diversity.",
-    build: "A modular, accessible Flutter app backed by a FastAPI service, supporting chunked uploads, offline SQLite drafts, and end-to-end encryption for 16 cultural categories.",
-    outcome: "A professional, Figma-designed cross-platform tool enabling seamless crowdsourced data collection in multiple Indic languages.",
+    techStack: ["Flutter", "Dart", "Appwrite", "Riverpod", "GoRouter"],
+    problem: "Event planning tools often lack the 'Apple-grade' polish that makes an invitation feel special.",
+    build: "A motion-driven Flutter experience with Appwrite cloud-native sync and a sleek dark mobile interface.",
+    outcome: "A cinematic event builder that makes every invitation feel like a premium product launch.",
     challenges: [
-      "Handling large multimodal uploads across unstable mobile networks",
-      "Building offline-first capabilities with background sync",
-      "Designing an accessible interface for diverse demographics and languages"
+      "Crafting high-fidelity mobile animations and transitions",
+      "Implementing efficient real-time cloud synchronization",
+      "Designing a scalable feature-based module architecture"
     ],
-    architecture: ["Flutter Client", "FastAPI Backend", "SQLite Local Storage", "Secure Sync Layer"],
-    featuredBias: 15, // Make it very high to ensure it's prominently featured
-    featuredReason: "Showcases full-stack mobile capabilities, offline-first architecture, and meaningful social impact."
+    architecture: ["Flutter Client", "Appwrite BaaS", "Riverpod State Layer"],
+    featuredBias: 28,
+    featuredReason: "Mastery of mobile-first cinematic UX and cloud-native integration.",
+    accentColor: "violet"
   },
-  durgapuja: {
-    summary: "An AI-assisted operations app built for Kolkata's Durga idol artisans.",
-    useCase: "Mobile workflow system for artisans, orders, ledgers, and AI-powered design support.",
-    discipline: "Mobile Products",
-    techStack: ["Flutter", "Dart", "Firebase", "OpenAI", "Speech-to-Text"],
-    problem: "Traditional artisan workflows need digital tooling that respects language, pace, and on-the-ground realities.",
-    build:
-      "This chapter combines a Flutter surface, Firebase data flows, Bengali voice capture, and generative AI features into one operating layer.",
-    outcome:
-      "The result feels like a product, not just a prototype: one place to track orders, finances, inventory, and visual inspiration.",
+  loomlane: {
+    title: "Loomlane",
+    summary: "Customised university merchandise system with a secure, scalable commerce backbone.",
+    useCase: "Scalable e-commerce platform for customized university merchandise.",
+    discipline: "Platforms & Data",
+    techStack: ["MongoDB", "JWT", "OAuth", "Razorpay", "Stripe"],
+    problem: "University merch systems require secure, multi-tenant workflows and robust payment integrations.",
+    build: "A secure backend migration from Supabase to MongoDB, implementing complex JWT refresh flows and global payment gateways.",
+    outcome: "A product-grade commerce system serving thousands of university students in India.",
     challenges: [
-      "Designing around bilingual and voice-first usage patterns",
-      "Blending operational tooling with AI features without overwhelming the user",
-      "Keeping the experience practical for a local business workflow"
+      "Migrating legacy data to MongoDB with zero downtime",
+      "Implementing secure JWT and Google OAuth flows",
+      "Integrating disparate payment systems like Razorpay and Stripe"
     ],
-    architecture: ["Flutter client", "Firebase-backed data layer", "Voice and AI service integrations"],
-    featuredBias: 14,
-    featuredReason: "Shows the strongest overlap of product thinking, AI, and mobile execution."
-  },
-  "oracle-agent": {
-    summary: "A decision-making sandbox for agents navigating uncertain environments.",
-    useCase: "Simulation-driven AI experiment for planning, inference, and autonomous behavior.",
-    discipline: "AI Systems",
-    techStack: ["Python", "Reinforcement Learning", "A*", "Bayesian Inference", "NumPy"],
-    problem: "Autonomous agents need to reason under uncertainty, not just chase deterministic rewards.",
-    build:
-      "The repo mixes pathfinding, probabilistic sensing, and reinforcement learning signals to test how an agent behaves when the world is only partially visible.",
-    outcome:
-      "It reads like a compact research lab focused on autonomy, navigation, and reasoning quality.",
-    challenges: [
-      "Balancing path planning with uncertain sensor inputs",
-      "Designing reward logic that does not collapse into brittle behavior",
-      "Making partially observable environments debuggable"
-    ],
-    architecture: ["Simulation loop", "Inference and planning layer", "Policy and visualization tooling"],
-    featuredBias: 13,
-    featuredReason: "A strong AI chapter with clear technical depth and a distinctive problem space."
-  },
-  robot_vision: {
-    summary: "A robotics and computer-vision lab that turns perception math into something visible.",
-    useCase: "Interactive robotics demo for kinematics, camera projection, and vision pipelines.",
-    discipline: "AI Systems",
-    techStack: ["Python", "OpenCV", "Streamlit", "NumPy", "Kinematics"],
-    problem: "Perception and robotics concepts are hard to trust until the math becomes observable.",
-    build:
-      "The project connects forward kinematics, camera projection, and dashboard-style visualization to show how a robot interprets the world through a lens.",
-    outcome:
-      "It becomes both a teaching surface and a technical proof-of-work for vision-driven robotics.",
-    challenges: [
-      "Keeping geometric concepts visual instead of abstract",
-      "Coordinating robotic transforms with camera-space projections",
-      "Packaging technical depth into an interactive interface"
-    ],
-    architecture: ["Python computation layer", "Vision and geometry modules", "Streamlit interaction surface"],
-    featuredBias: 12,
-    featuredReason: "One of the clearest examples of technical depth presented through an interface."
-  },
-  Network_Performance: {
-    summary: "A research-heavy notebook exploring network behavior prediction with deep learning.",
-    useCase: "Sequence-modeling lab for forecasting throughput, latency, and other performance signals.",
-    discipline: "AI Systems",
-    techStack: ["Python", "Jupyter", "Deep Learning", "Time Series", "Prediction"],
-    problem: "Network behavior is noisy and temporal, so static analysis misses the patterns hidden across time.",
-    build:
-      "The repo explores model families built for sequential prediction and uses notebooks as a fast research loop for iteration.",
-    outcome:
-      "It positions you as someone comfortable using ML for systems-oriented forecasting problems.",
-    challenges: [
-      "Capturing temporal patterns without overfitting",
-      "Comparing model behavior across different forecasting strategies",
-      "Turning research experiments into interpretable outputs"
-    ],
-    architecture: ["Notebook-based experimentation", "Model training routines", "Evaluation and comparison flows"],
-    featuredBias: 10,
-    featuredReason: "Strong signal for applied ML and research-style experimentation."
+    architecture: ["Node.js/Express Backend", "MongoDB Data Layer", "Multi-Gateway Payment Integration"],
+    featuredBias: 25,
+    featuredReason: "Demonstrates real-world freelance execution and commerce scaling.",
+    accentColor: "orange",
+    demoUrl: "https://loomlane-one.vercel.app"
   },
   crisis_comm_env: {
-    summary: "A multi-agent environment for stress-testing communication under crisis conditions.",
-    useCase: "Simulation framework for emergent coordination and communication-aware policies.",
+    title: "Crisis Command",
+    summary: "Multi-turn RL environment for training agents on high-stakes organizational communication.",
+    useCase: "Stress-testing agent reasoning and communication-aware policies.",
     discipline: "AI Systems",
-    techStack: ["Python", "Simulation", "Multi-Agent Systems", "Reinforcement Learning"],
-    problem: "Coordination breaks first when communication becomes constrained, delayed, or noisy.",
-    build:
-      "The environment creates a space to test policy behavior when agents must share information carefully during high-stakes scenarios.",
-    outcome:
-      "It adds a distinct systems-and-agency angle to the portfolio's AI work.",
+    techStack: ["Python", "Reinforcement Learning", "FastAPI", "OpenEnv"],
+    problem: "Agents often struggle with cross-audience consistency and adversarial pressure during crises.",
+    build: "A multi-turn tactical environment with a deterministic grader that penalizes contradictions and missed deadlines.",
+    outcome: "A research-grade benchmark for observing emergent coordination failure modes.",
     challenges: [
       "Modeling communication as a first-class constraint",
-      "Observing group behavior rather than single-agent outcomes",
-      "Designing environments that reveal coordination failure modes"
+      "Building a deterministic grader for subjective communication quality",
+      "Designing adversarial scenarios that reveal reasoning gaps"
     ],
-    architecture: ["Environment rules engine", "Communication-aware agent loop", "Policy evaluation tooling"],
-    featuredBias: 11,
-    featuredReason: "Expands the AI narrative from single-agent logic into coordination systems."
+    architecture: ["OpenEnv Wrapper", "Deterministic Grader Engine", "Tactical Dashboard UI"],
+    featuredBias: 26,
+    featuredReason: "Expands the AI narrative from single-agent logic into coordination systems.",
+    demoUrl: "https://huggingface.co/spaces/Sammy1808/crisis_comm"
+  },
+  "oracle-agent": {
+    title: "Oracle Agent",
+    summary: "In a world of noise and uncertainty, only the Oracle sees the path.",
+    useCase: "Research-grade navigation agent integrating A*, MCTS, and Bayesian inference.",
+    discipline: "AI Systems",
+    techStack: ["Python", "MCTS", "Bayesian Inference", "Q-Learning"],
+    problem: "Autonomous agents need to reason under deep uncertainty, not just chase rewards.",
+    build: "A unified decision architecture combining probabilistic state estimation with simulation-based action evaluation.",
+    outcome: "An adaptive agent capable of surviving hazards through intelligent sensor fusion.",
+    challenges: [
+      "Balancing path planning with uncertain sensor inputs",
+      "Implementing efficient Monte Carlo Tree Search rollouts",
+      "Fusing thermal and seismic sensor data for belief updates"
+    ],
+    architecture: ["Belief Engine (Bayes)", "Decision Engine (MCTS)", "Navigation Core (A*)"],
+    featuredBias: 24,
+    featuredReason: "Deep technical dive into probabilistic reasoning and search.",
+    demoUrl: "https://huggingface.co/spaces/Sammy1808/oracleagent"
+  },
+  robot_vision: {
+    title: "Robot Vision Lab",
+    summary: "Transforming robotic perception math into an interactive engineering story.",
+    useCase: "Premium simulation for kinematics, camera projection, and vision pipelines.",
+    discipline: "AI Systems",
+    techStack: ["Python", "OpenCV", "Plotly", "Streamlit", "NumPy"],
+    problem: "Robotics math is often abstract and difficult to trust without observable proof.",
+    build: "A real-time simulation connecting DH kinematics with pinhole camera projections on a 3D image plane.",
+    outcome: "A high-fidelity dashboard that makes perception math physically observable.",
+    challenges: [
+      "Coordinating complex robotic transforms with camera-space projections",
+      "Building a performant 3D visualization using Plotly/WebGL",
+      "Simulating real-time vertex occlusion and image status"
+    ],
+    architecture: ["Kinematics Engine", "Projection Module", "Plotly Visualization Layer"],
+    featuredBias: 22,
+    featuredReason: "Exceptional presentation of complex geometric and vision concepts.",
+    demoUrl: "https://samanyu-dev.github.io/robot_vision/"
   },
   MovieNestApp: {
-    summary: "A movie discovery app designed around delight, exploration, and mobile polish.",
-    useCase: "Mobile-first cinema browsing and recommendation experience.",
+    title: "MovieNest",
+    summary: "Your ultimate movie discovery companion designed for delight and mobile polish.",
+    useCase: "Intuitive movie discovery with clean architecture and global localization.",
     discipline: "Mobile Products",
-    techStack: ["Swift", "iOS", "API Integration", "UI Design"],
-    problem: "Content discovery products often surface data well but fail to feel memorable or personal.",
-    build:
-      "This project focuses on app flow, browsing ergonomics, and a polished presentation layer for movie exploration.",
-    outcome:
-      "It shows your range beyond AI by demonstrating taste, pacing, and native mobile craft.",
+    techStack: ["Swift", "SwiftUI", "Core Data", "MVVM", "TMDb API"],
+    problem: "Discovery products often surface data well but fail to feel personal or ergonomically polished.",
+    build: "A native iOS experience featuring smart watchlist management and a multi-language localization engine.",
+    outcome: "A polished, production-ready app demonstrating mobile taste and clean software craft.",
     challenges: [
-      "Making content-heavy interfaces feel calm and navigable",
-      "Structuring reusable mobile views around media data",
-      "Creating enough polish to make exploration feel premium"
+      "Implementing efficient image caching and lazy loading",
+      "Maintaining architectural integrity with MVVM and Core Data",
+      "Designing a localized experience for English, Hindi, and Telugu"
     ],
-    architecture: ["Swift client", "Media API integration", "Screen and state composition"],
-    featuredBias: 9,
-    featuredReason: "A strong product-design counterpoint to the research-heavy AI work."
+    architecture: ["SwiftUI View Layer", "MVVM Coordinator Pattern", "Core Data Persistence"],
+    featuredBias: 20,
+    featuredReason: "Strong product-design counterpoint to research-heavy work.",
+    accentColor: "cyan"
   },
   dream11_ranking: {
-    summary: "A motion-rich leaderboard for tracking fantasy cricket performance with friends.",
-    useCase: "Social ranking surface for a fantasy sports group.",
+    title: "Dream11 Tracker",
+    summary: "A motion-rich leaderboard tracking performance through the lens of gamification.",
+    useCase: "Interactive ranking system with XP, levels, and real-time celebrations.",
     discipline: "Interactive Web",
-    techStack: ["HTML", "CSS", "JavaScript", "GSAP", "Supabase", "Chart.js"],
-    featuredBias: 8,
-    demoUrl: "https://samanyu-dev.github.io/dream11_ranking/"
+    techStack: ["JavaScript", "GSAP", "Supabase", "Chart.js"],
+    problem: "Static leaderboards fail to engage users or communicate the emotional momentum of competition.",
+    build: "A real-time dashboard with podium visualizations, XP systems, and confetti-driven level-up animations.",
+    outcome: "An engaging, gamified surface that turns fantasy sports data into a living competition.",
+    challenges: [
+      "Integrating GSAP for smooth animated position changes",
+      "Building a weighted scoring algorithm for unified rankings",
+      "Managing real-time state synchronization with Supabase"
+    ],
+    architecture: ["Vanilla JS Frontend", "Supabase Realtime Backend", "GSAP Animation Engine"],
+    featuredBias: 18,
+    featuredReason: "High engagement through motion and intelligent scoring algorithms.",
+    demoUrl: "https://samanyu-dev.github.io/dream11_ranking/",
+    accentColor: "emerald"
   },
-  dream11_dashboard: {
-    summary: "A dashboard-driven companion for visualizing Dream11 data and rankings.",
-    useCase: "Analytics-focused web dashboard for leaderboard insights.",
-    discipline: "Interactive Web",
-    techStack: ["HTML", "CSS", "JavaScript", "Dashboard UI"],
-    categoryHint: "utilities"
-  },
-  Portfolio: {
-    title: "Portfolio V1",
-    summary: "An earlier personal site exploring front-end identity and interaction.",
-    useCase: "Brand and interface playground for presenting work online.",
-    discipline: "Interactive Web",
-    techStack: ["JavaScript", "Responsive UI", "Interaction Design"],
-    categoryHint: "utilities"
-  },
-  ExecuBot: {
-    summary: "An early concept repo for agentic automation driven by plain-language commands.",
-    useCase: "AI assistant idea focused on turning instructions into executable actions.",
-    discipline: "Product Experiments",
-    techStack: ["Agentic AI", "Automation", "Natural Language"],
-    featuredBias: 6
-  },
-  nosh_api: {
-    summary: "A backend-leaning build exploring API and systems workflows.",
-    useCase: "Service-layer experiment for integrations and data exchange.",
+  GitInsights: {
+    title: "GitInsights",
+    summary: "Transforming raw contribution data into a compelling technical narrative.",
+    useCase: "Developer intelligence suite with AI narratives and 3D visualizations.",
     discipline: "Platforms & Data",
-    techStack: ["C++", "API Design", "Systems Thinking"],
-    categoryHint: "utilities"
-  },
-  lumyst_internship_task: {
-    summary: "A shipping-focused internship exercise built around delivery speed and presentation.",
-    useCase: "Execution sprint for an internship brief.",
-    discipline: "Interactive Web",
-    techStack: ["HTML", "CSS", "Rapid Prototyping"],
-    categoryHint: "utilities"
-  },
-  tutordecentra: {
-    summary: "A decentralized tutoring concept exploring trust and educational access.",
-    useCase: "Education experiment around decentralization and peer-to-peer learning.",
-    discipline: "Product Experiments",
-    techStack: ["Concept Design", "Education", "Decentralization"],
-    featuredBias: 5
-  },
-  HackInToTheFuture: {
-    summary: "A hackathon-era web build shaped by speed, experimentation, and fast decision-making.",
-    useCase: "Rapid launch surface for a time-boxed idea.",
-    discipline: "Interactive Web",
-    techStack: ["HTML", "CSS", "Hackathon Build"],
-    categoryHint: "experimental"
-  },
-  robotics: {
-    summary: "A lightweight GitHub Pages drop for publishing robotics paper solutions.",
-    useCase: "Knowledge log and quick-share site for robotics notes.",
-    discipline: "Product Experiments",
-    techStack: ["HTML", "GitHub Pages", "Robotics"],
-    categoryHint: "utilities",
-    demoUrl: "https://samanyu-dev.github.io/robotics/"
-  },
-  "Samanyu-dev": {
-    title: "Profile README",
-    summary: "The profile repository that shapes the public first impression on GitHub itself.",
-    useCase: "Identity layer for the broader GitHub presence.",
-    discipline: "Product Experiments",
-    techStack: ["Markdown", "Developer Branding"],
-    categoryHint: "utilities"
+    techStack: ["React Three Fiber", "GitHub API", "OpenAI", "Analytics Engine"],
+    featuredBias: 25,
+    featuredReason: "Immersive 3D data visualization."
   }
 };
