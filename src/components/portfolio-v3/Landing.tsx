@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { PropsWithChildren } from "react";
 import "./styles/Landing.css";

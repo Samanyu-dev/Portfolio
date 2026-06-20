@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -51,7 +52,7 @@ const Contact = () => {
         >
           <span className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-6 py-2.5 font-mono text-[10px] uppercase tracking-[0.4em] text-gray-400 backdrop-blur-3xl shadow-2xl">
             <Sparkles className="h-3.5 w-3.5 text-[var(--primary)]" />
-            Let's Connect
+            Let&apos;s Connect
           </span>
           <h2 className="mt-8 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl">
             Let&apos;s build the <span className="text-[var(--primary)]">future</span>.
