@@ -2,67 +2,36 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: "class",
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}"
-  ],
+  content: ["./src/**/*.{ts,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
-        "bg-primary": "#07060e",
-        "bg-secondary": "#0c0a18",
-        "bg-surface": "#110e22",
-        "neon-purple": "#9b5cff",
-        "electric-blue": "#00d4ff",
-        "accent-magenta": "#ff3cac",
-        "text-primary": "#f0eeff",
-        "text-secondary": "#a09cbf",
-        "text-muted": "#6b6690"
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        card: "var(--card)",
+        line: "var(--border)",
+        muted: "var(--muted)",
+        "muted-foreground": "var(--muted-foreground)",
+        primary: "var(--primary)",
+        "bg-0": "var(--bg-0)",
+        "bg-1": "var(--bg-1)",
+        "bg-2": "var(--bg-2)",
+        "text-0": "var(--text-0)",
+        "text-1": "var(--text-1)",
+        "text-2": "var(--text-2)",
+        "brand-a": "var(--brand-a)",
+        "brand-b": "var(--brand-b)",
+        "brand-c": "var(--brand-c)"
       },
       fontFamily: {
-        sans: ["var(--font-sora)", "Sora", "sans-serif"],
-        mono: ["var(--font-space-mono)", "Space Mono", "monospace"]
+        sans: ["var(--font-space)", "Space Grotesk", "sans-serif"],
+        display: ["var(--font-archivo)", "Archivo", "sans-serif"],
+        body: ["var(--font-space)", "Space Grotesk", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"]
       },
       boxShadow: {
-        "glow-purple": "0 0 60px rgba(155, 92, 255, 0.25)",
-        "glow-blue": "0 0 60px rgba(0, 212, 255, 0.2)",
-        "glow-magenta": "0 0 60px rgba(255, 60, 172, 0.18)",
-        "glow-subtle": "0 20px 80px rgba(155, 92, 255, 0.12)"
-      },
-      animation: {
-        "float-gentle": "float-gentle 6s ease-in-out infinite",
-        "float-slow": "float-slow 8s ease-in-out infinite",
-        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
-        "gradient-shift": "gradient-shift 15s ease infinite",
-        shimmer: "shimmer 2s ease infinite"
-      },
-      keyframes: {
-        "float-gentle": {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" }
-        },
-        "float-slow": {
-          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
-          "33%": { transform: "translateY(-8px) rotate(1deg)" },
-          "66%": { transform: "translateY(4px) rotate(-1deg)" }
-        },
-        "pulse-glow": {
-          "0%, 100%": { opacity: "0.4", transform: "scale(1)" },
-          "50%": { opacity: "0.7", transform: "scale(1.05)" }
-        },
-        "gradient-shift": {
-          "0%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-          "100%": { backgroundPosition: "0% 50%" }
-        },
-        shimmer: {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(100%)" }
-        }
-      },
-      backgroundSize: {
-        "400": "400% 400%"
+        glow: "0 0 40px rgba(123, 223, 246, 0.32)",
+        pane: "0 20px 60px rgba(6, 8, 18, 0.35)"
       }
     }
   },

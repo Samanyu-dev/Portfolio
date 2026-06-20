@@ -105,8 +105,8 @@ export function ProjectsScreen({
                   onClick={() => { setFilter(cat.id); setSelectedIndex(0); }}
                   className={`flex items-center gap-2.5 rounded-xl border px-4 py-2 text-xs font-bold transition-all duration-300 ${
                     isActive 
-                      ? `${styles.border} ${styles.bg} ${styles.glow} text-white` 
-                      : "border-white/5 bg-white/2 text-text-muted hover:border-white/20 hover:text-white"
+                      ? `${styles.border} ${styles.bg} ${styles.glow} text-text-primary` 
+                      : "border-[#1a1705]/10 bg-[#1a1705]/5 text-text-muted hover:border-[#1a1705]/30 hover:text-text-primary"
                   }`}
                 >
                   <Icon className="h-3.5 w-3.5" />
@@ -148,15 +148,15 @@ export function ProjectsScreen({
         <div className="absolute inset-x-0 top-1/2 z-20 flex -translate-y-1/2 justify-between px-4 sm:px-10 lg:px-20 pointer-events-none">
           <button
             onClick={handlePrev}
-            className="group pointer-events-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl transition-all hover:scale-110 hover:border-neon-purple/50"
+            className="group pointer-events-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#1a1705]/10 bg-[#fbf9f6]/85 backdrop-blur-xl transition-all hover:scale-110 hover:border-neon-purple/50 shadow-sm"
           >
-            <ChevronLeft className="h-6 w-6 text-white transition-transform group-hover:-translate-x-1" />
+            <ChevronLeft className="h-6 w-6 text-[#1a1705] transition-transform group-hover:-translate-x-1" />
           </button>
           <button
             onClick={handleNext}
-            className="group pointer-events-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl transition-all hover:scale-110 hover:border-neon-purple/50"
+            className="group pointer-events-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#1a1705]/10 bg-[#fbf9f6]/85 backdrop-blur-xl transition-all hover:scale-110 hover:border-neon-purple/50 shadow-sm"
           >
-            <ChevronRight className="h-6 w-6 text-white transition-transform group-hover:translate-x-1" />
+            <ChevronRight className="h-6 w-6 text-[#1a1705] transition-transform group-hover:translate-x-1" />
           </button>
         </div>
       </div>
@@ -177,7 +177,7 @@ export function ProjectsScreen({
           <div className="flex gap-8">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted">Total Labs</p>
-              <p className="text-xl font-bold text-white">{projects.length}</p>
+              <p className="text-xl font-bold text-text-primary">{projects.length}</p>
             </div>
             <div>
               <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted">Sector Index</p>
@@ -276,7 +276,7 @@ function ProjectCard({ project, onFocus }: { project: PortfolioRepo; onFocus: ()
               <span className={`h-1.5 w-1.5 rounded-full ${accentColor[project.accentColor]} animate-pulse`} />
               <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-text-muted">{project.category}</span>
             </div>
-            <h3 className="text-5xl font-black text-white tracking-tighter sm:text-6xl lg:text-7xl leading-[0.9]">
+            <h3 className="text-5xl font-black text-text-primary tracking-tighter sm:text-6xl lg:text-7xl leading-[0.9]">
               {project.title}
             </h3>
           </div>

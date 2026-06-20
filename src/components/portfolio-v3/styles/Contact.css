@@ -1,0 +1,124 @@
+.contact-section {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 10vw 5vw 5vw 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8vw;
+}
+
+.contact-headline {
+  font-size: 11vw;
+  font-weight: 500;
+  text-align: center;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2vw;
+  text-transform: uppercase;
+  color: #fff;
+  overflow: hidden;
+}
+
+.contact-headline span {
+  display: inline-block;
+}
+
+.contact-headline span:nth-child(2) {
+  font-family: var(--font-allura);
+  color: var(--primary);
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+.contact-links {
+  display: flex;
+  gap: 4vw;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.magnetic-link {
+  font-size: 2vw;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-space);
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 1.5vw 3vw;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease, border-color 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.magnetic-link:hover {
+  background: var(--primary);
+  color: #0b080c;
+  border-color: var(--primary);
+}
+
+.contact-footer {
+  margin-top: 10vw;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 3vw;
+}
+
+.contact-footer h2 {
+  font-size: 1.5vw;
+  font-weight: 300;
+  color: #888;
+  line-height: 1.5;
+}
+
+.contact-footer h2 span {
+  color: #fff;
+  font-weight: 500;
+}
+
+.contact-footer h5 {
+  font-size: 1.2vw;
+  font-weight: 400;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+@media (max-width: 1024px) {
+  .contact-headline { font-size: 13vw; gap: 3vw; }
+  .magnetic-link { font-size: 3vw; padding: 2vw 4vw; }
+  .contact-footer h2 { font-size: 2.5vw; }
+  .contact-footer h5 { font-size: 2vw; }
+}
+
+@media (max-width: 768px) {
+  .contact-section { padding: 20vw 5vw 10vw 5vw; }
+  .contact-container { gap: 15vw; }
+  .contact-headline { font-size: 18vw; gap: 4vw; flex-direction: column; text-align: center; }
+  .contact-links { flex-direction: column; gap: 5vw; align-items: center; width: 100%; }
+  .magnetic-link { font-size: 5vw; padding: 4vw 8vw; width: 80%; justify-content: center; }
+  .contact-footer { flex-direction: column; align-items: center; gap: 5vw; text-align: center; }
+  .contact-footer h2 { font-size: 4vw; }
+  .contact-footer h5 { font-size: 3.5vw; }
+}

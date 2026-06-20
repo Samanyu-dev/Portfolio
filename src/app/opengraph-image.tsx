@@ -1,10 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Samanyu interactive developer portfolio";
-export const size = {
-  width: 1200,
-  height: 630
-};
+export const alt = "Samanyu | AI + Full-Stack Portfolio";
+export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
@@ -12,49 +9,29 @@ export default function OpenGraphImage() {
     (
       <div
         style={{
-          height: "100%",
           width: "100%",
+          height: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "56px",
-          color: "white",
+          padding: "54px",
+          color: "#f8fbff",
           background:
-            "radial-gradient(circle at top left, rgba(56,189,248,0.32), transparent 26%), radial-gradient(circle at bottom right, rgba(249,115,22,0.26), transparent 22%), linear-gradient(180deg, #050816 0%, #071225 55%, #050816 100%)"
+            "radial-gradient(circle at 16% 10%, rgba(123,223,246,0.3), transparent 42%), radial-gradient(circle at 85% 14%, rgba(99,242,212,0.22), transparent 38%), linear-gradient(160deg, #06080d, #0b101a 45%, #141c2a)"
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 14,
-            fontSize: 22,
-            letterSpacing: "0.28em",
-            textTransform: "uppercase",
-            color: "#cbd5e1"
-          }}
-        >
-          <span>Interactive portfolio</span>
+        <div style={{ fontSize: 20, letterSpacing: "0.24em", textTransform: "uppercase", color: "#b4c6e4" }}>
+          Premium Engineering Portfolio
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: 920 }}>
-          <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: "-0.06em", lineHeight: 1 }}>
-            Samanyu
-          </div>
-          <div style={{ fontSize: 34, lineHeight: 1.35, color: "#dbeafe" }}>
-            AI systems, mobile products, and story-led engineering shaped into one immersive journey.
+        <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 950 }}>
+          <div style={{ fontSize: 76, fontWeight: 700, lineHeight: 1 }}>Samanyu Reddy Allipuram</div>
+          <div style={{ fontSize: 32, lineHeight: 1.28, color: "#d7e5ff" }}>
+            AI systems, full-stack product builds, and cinematic interfaces with production reliability.
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            fontSize: 24,
-            color: "#e2e8f0"
-          }}
-        >
-          <span>GitHub-driven project chapters</span>
-          <span>samanyu-portfolio.vercel.app</span>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#c8daff" }}>
+          <span>samanyuallipuram.vercel.app</span>
+          <span>GitHub-powered project intelligence</span>
         </div>
       </div>
     ),

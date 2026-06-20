@@ -1,0 +1,128 @@
+.blog-page-container {
+  min-height: 100vh;
+  background-color: #0b080c;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 10;
+}
+
+.blog-page-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.blog-page-header h1 {
+  font-size: 60px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 2px;
+  margin: 0 0 20px 0;
+}
+
+.blog-page-header h1 span {
+  font-family: var(--font-allura);
+  text-transform: capitalize;
+  font-weight: 400;
+  color: var(--primary);
+}
+
+.blog-page-header p {
+  font-family: var(--font-archivo);
+  color: #888;
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.blog-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 0 20px;
+}
+
+.blog-post {
+  background: rgba(25, 25, 25, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 50px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+  border-color: rgba(138, 43, 226, 0.3);
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-family: var(--font-space);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.blog-category {
+  color: var(--primary);
+  background: rgba(138, 43, 226, 0.1);
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.blog-date {
+  color: #666;
+}
+
+.blog-title {
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 30px;
+  font-family: "Geist", sans-serif;
+  line-height: 1.2;
+}
+
+.blog-content {
+  font-family: var(--font-archivo);
+  color: #ccc;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.blog-content p {
+  margin-bottom: 20px;
+}
+
+.blog-content h3 {
+  font-size: 24px;
+  color: #fff;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-family: "Geist", sans-serif;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .blog-page-header h1 {
+    font-size: 40px;
+  }
+  .blog-post {
+    padding: 30px;
+  }
+  .blog-title {
+    font-size: 28px;
+  }
+  .blog-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

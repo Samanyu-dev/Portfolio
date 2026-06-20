@@ -12,7 +12,7 @@ type ProjectPageProps = {
 
 export async function generateStaticParams() {
   const data = await getPortfolioData();
-  return data.repositories.map((repo) => ({ slug: repo.slug }));
+  return data.repositories.map((repo: { slug: string }) => ({ slug: repo.slug }));
 }
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const data = await getPortfolioData();
-  const repo = data.repositories.find((item) => item.slug === params.slug);
+  const repo = data.repositories.find((item: any) => item.slug === params.slug);
 
   if (!repo) {
     notFound();

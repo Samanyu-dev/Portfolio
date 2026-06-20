@@ -1,19 +1,26 @@
 import type { MetadataRoute } from "next";
-import { getPortfolioData } from "@/lib/portfolio-data";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://samanyu-portfolio.vercel.app";
+import { getPortfolioIntelligence } from "@/lib/github-intelligence";
+import { siteConfig } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const data = await getPortfolioData();
+  const data = await getPortfolioIntelligence();
 
   return [
     {
-      url: siteUrl,
+      url: `${siteConfig.baseUrl}/`,
       lastModified: new Date()
     },
-    ...data.repositories.map((repo) => ({
-      url: `${siteUrl}/projects/${repo.slug}`,
-      lastModified: new Date(repo.timeline.updatedAt)
-    }))
+    {
+      url: `${siteConfig.baseUrl}/projects`,
+      lastModified: new Date(data.generatedAt)
+    },
+    {
+      url: `${siteConfig.baseUrl}/experience`,
+      lastModified: new Date()
+    },
+    {
+      url: `${siteConfig.baseUrl}/contact`,
+      lastModified: new Date()
+    }
   ];
 }

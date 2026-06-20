@@ -9,12 +9,11 @@ import { IntroAnimation } from "@/components/animations/IntroAnimation";
 import { HeroScreen } from "@/components/scenes/HeroScreen";
 import { SkillsScreen } from "@/components/scenes/SkillsScreen";
 import { ProjectsScreen } from "@/components/scenes/ProjectsScreen";
+import { Scene } from "@/components/Hero/Scene";
+import { SideNav } from "@/components/SideNav";
 import { ExperienceScreen } from "@/components/scenes/ExperienceScreen";
 import { ContactScreen } from "@/components/scenes/ContactScreen";
-import { NeuralOverlay } from "@/components/scenes/NeuralOverlay";
 import { CommandPalette } from "@/components/portfolio/CommandPalette";
-
-import { GlobeBackground } from "@/components/scenes/GlobeBackground";
 
 const screens = [
   { id: "home", label: "Home", icon: Home },
@@ -125,10 +124,7 @@ export function PortfolioExperience({ data }: { data: PortfolioData }) {
         style={{ visibility: introComplete ? "visible" : "hidden" }}
       >
         {/* Global Cinematic Background */}
-        {introComplete && <GlobeBackground screen={active} mode={visualMode} focusNode={focusedTech} />}
-
-        {/* Neural Connections Layer */}
-        {introComplete && <NeuralOverlay active={active} mode={visualMode} focusNode={focusedTech} />}
+        {introComplete && <Scene />}
 
         {/* System Overlays for "System" Mode */}
         <AnimatePresence>
@@ -164,91 +160,10 @@ export function PortfolioExperience({ data }: { data: PortfolioData }) {
           >
             {audioEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
           </button>
-        </div>
-
-        {/* Navigation - Desktop (top) */}
-        <div className="pointer-events-none fixed left-1/2 top-5 z-50 hidden w-full max-w-2xl -translate-x-1/2 px-4 md:flex">
-          <nav className="pointer-events-auto flex w-full items-center justify-center gap-1 rounded-2xl border border-white/[0.08] bg-bg-primary/60 px-2 py-2 shadow-[0_20px_60px_rgba(0,0,0,0.4)] backdrop-blur-2xl">
-            {screens.map((item) => {
-              const Icon = item.icon;
-              const isActive = item.id === active;
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => {
-                    setActive(item.id);
-                    playSound("click");
-                  }}
-                  data-cursor="interactive"
-                  className={`relative flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-300 ${
-                    isActive
-                      ? "text-white"
-                      : "text-text-muted hover:text-text-secondary"
-                  }`}
-                >
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-pill"
-                      className="absolute inset-0 rounded-xl bg-neon-purple/15 border border-neon-purple/25 shadow-[0_0_30px_rgba(155,92,255,0.15)]"
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    />
-                  )}
-                  <Icon className="relative z-10 h-4 w-4" />
-                  <span className="relative z-10">{item.label}</span>
-                </button>
-              );
-            })}
-          </nav>
-        </div>
-
-        {/* Navigation - Mobile (bottom) */}
-        <div className="pointer-events-none fixed inset-x-0 bottom-4 z-50 px-4 md:hidden">
-          <nav className="pointer-events-auto mx-auto flex w-full max-w-md items-center justify-between rounded-2xl border border-white/[0.08] bg-bg-primary/70 px-3 py-2 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] backdrop-blur-2xl">
-            {screens.map((item) => {
-              const Icon = item.icon;
-              const isActive = item.id === active;
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => {
-                    setActive(item.id);
-                    playSound("click");
-                  }}
-                  data-cursor="interactive"
-                  className={`relative flex flex-col items-center gap-1 rounded-xl px-3 py-2 text-[10px] transition-all duration-300 ${
-                    isActive ? "text-neon-purple" : "text-text-muted"
-                  }`}
-                >
-                  <span
-                    className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all ${
-                      isActive ? "bg-neon-purple/15 shadow-[0_0_20px_rgba(155,92,255,0.2)]" : ""
-                    }`}
-                  >
-                    <Icon className="h-4 w-4" />
-                  </span>
-                  {item.label}
-                </button>
-              );
-            })}
-            
-            <div className="mx-1 h-8 w-px bg-white/10" />
-            
-            <button
-              onClick={() => {
-                setPaletteOpen(true);
-                playSound("click");
-              }}
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-text-muted"
-            >
-              <Settings className="h-4 w-4" />
-            </button>
-          </nav>
-        </div>
+        </div>        <SideNav active={active} onNavigate={navigate} />
 
         {/* Screen content */}
-        <main className="absolute inset-0 z-10 overflow-hidden" style={{ perspective: "1500px" }}>
+        <main className="absolute inset-0 z-10 overflow-hidden md:pl-[60px]" style={{ perspective: "1500px" }}>
           <AnimatePresence mode="wait">
             <motion.section
               key={active}

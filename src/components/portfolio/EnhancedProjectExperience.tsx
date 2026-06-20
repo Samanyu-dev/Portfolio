@@ -183,7 +183,7 @@ export function EnhancedProjectExperience({
         }}
         className={`${focusMode ? "z-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-4xl" : ""}`}
       >
-        <div className="story-card overflow-hidden">
+        <div className="story-card overflow-hidden bg-white/75 dark:bg-[#07070a]/90 border border-black/10 dark:border-white/10 rounded-[2.5rem] shadow-2xl backdrop-blur-2xl">
           {/* Close button in focus mode */}
           <AnimatePresence>
             {focusMode && (
@@ -192,16 +192,16 @@ export function EnhancedProjectExperience({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setFocusMode(false)}
-                className="absolute -right-12 top-0 z-10 text-white hover:text-cyan-300 transition"
+                className="absolute -right-12 top-0 z-10 text-[#1a1705] dark:text-white hover:text-[#a35d4e] dark:hover:text-cyan-300 transition"
               >
                 <X className="h-6 w-6" />
               </motion.button>
             )}
           </AnimatePresence>
 
-          <div className={`grid gap-6 p-6 sm:p-8 ${focusMode ? "lg:grid-cols-1" : "lg:grid-cols-[0.45fr_0.55fr]"}`}>
+          <div className={`grid gap-8 p-8 sm:p-12 ${focusMode ? "lg:grid-cols-1" : "lg:grid-cols-[0.5fr_0.5fr]"}`}>
             {/* Left: Project Info */}
-            <div className="flex flex-col justify-between">
+            <div className="flex flex-col justify-between space-y-6">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedRepo.slug}
@@ -213,65 +213,65 @@ export function EnhancedProjectExperience({
                 >
                   {/* Category and counter */}
                   <div>
-                    <p className="text-xs uppercase tracking-[0.32em] text-slate-400">
+                    <p className="text-xs font-mono uppercase tracking-[0.25em] text-[#a35d4e]">
                       {activeGroup.label}
                     </p>
-                    <p className="mt-2 text-xs text-slate-500">
+                    <p className="mt-2 text-[10px] font-mono uppercase tracking-widest text-[#1a1705]/50 dark:text-slate-400">
                       Project {String(selectedIndex + 1).padStart(2, "0")} of {String(activeGroup.repos.length).padStart(2, "0")}
                     </p>
                   </div>
 
                   {/* Title and description */}
                   <div>
-                    <h3 className="text-4xl sm:text-5xl font-bold tracking-[-0.06em] text-white">
+                    <h3 className="text-3xl sm:text-5xl font-serif font-black tracking-tighter text-[#1a1705] dark:text-white leading-[1.05]">
                       {selectedRepo.title}
                     </h3>
-                    <p className="mt-4 text-lg leading-8 text-slate-200">
+                    <p className="mt-4 text-base leading-relaxed font-sans font-medium text-[#1a1705]/90 dark:text-slate-200">
                       {selectedRepo.useCase}
                     </p>
-                    <p className="mt-3 text-base leading-7 text-slate-400">
+                    <p className="mt-3 text-sm leading-relaxed text-[#1a1705]/70 dark:text-slate-400">
                       {selectedRepo.summary}
                     </p>
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex flex-wrap gap-3 pt-2">
+                  <div className="flex flex-wrap gap-2.5 pt-2">
                     <a
                       href={selectedRepo.links.repo}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10"
+                      className="inline-flex items-center gap-2 rounded-xl border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 px-4 py-2.5 text-[10px] font-mono uppercase tracking-wider text-[#1a1705] dark:text-white transition hover:border-black/20 dark:hover:border-white/25 hover:bg-black/10 dark:hover:bg-white/10"
                     >
                       Repository
-                      <GitBranch className="h-4 w-4" />
+                      <GitBranch className="h-3.5 w-3.5" />
                     </a>
                     {selectedRepo.links.demo && (
                       <a
                         href={selectedRepo.links.demo}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-300/15"
+                        className="inline-flex items-center gap-2 rounded-xl border border-[#a35d4e]/20 bg-[#a35d4e]/10 px-4 py-2.5 text-[10px] font-mono uppercase tracking-wider text-[#a35d4e] dark:text-cyan-300 transition hover:bg-[#a35d4e]/15"
                       >
                         Live Demo
-                        <Play className="h-4 w-4" />
+                        <Play className="h-3.5 w-3.5" />
                       </a>
                     )}
                     <motion.button
                       onClick={() => setShowDetails(!showDetails)}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/25 hover:bg-white/10"
+                      className="inline-flex items-center gap-2 rounded-xl border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 px-4 py-2.5 text-[10px] font-mono uppercase tracking-wider text-[#1a1705]/80 dark:text-slate-200 transition hover:border-black/20 dark:hover:border-white/25 hover:bg-black/10 dark:hover:bg-white/10"
                     >
-                      {showDetails ? "Hide Details" : "See Full Story"}
-                      <ArrowUpRight className="h-4 w-4" />
+                      {showDetails ? "Hide Story" : "See Story"}
+                      <ArrowUpRight className="h-3.5 w-3.5" />
                     </motion.button>
                     <motion.button
                       onClick={() => setFocusMode(true)}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/25 hover:bg-white/10"
+                      className="inline-flex items-center gap-2 rounded-xl border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 px-4 py-2.5 text-[10px] font-mono uppercase tracking-wider text-[#1a1705]/80 dark:text-slate-200 transition hover:border-black/20 dark:hover:border-white/25 hover:bg-black/10 dark:hover:bg-white/10"
                     >
-                      Focus Mode
+                      Focus
                     </motion.button>
                   </div>
                 </motion.div>
@@ -282,25 +282,25 @@ export function EnhancedProjectExperience({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ ...animationConfig.transitions.smooth, delay: 0.1 }}
-                className="mt-8 flex flex-wrap gap-2"
+                className="flex flex-wrap gap-2 pt-4 border-t border-black/5 dark:border-white/5"
               >
                 {selectedRepo.stack.slice(0, 4).map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-slate-300"
+                    className="rounded-xl border border-black/5 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] px-3 py-1.5 text-[10px] font-mono text-[#1a1705]/75 dark:text-slate-300"
                   >
                     {tech}
                   </span>
                 ))}
                 {selectedRepo.stack.length > 4 && (
-                  <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-slate-400">
+                  <span className="rounded-xl border border-black/5 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] px-3 py-1.5 text-[10px] font-mono text-[#1a1705]/50 dark:text-slate-400">
                     +{selectedRepo.stack.length - 4}
                   </span>
                 )}
               </motion.div>
             </div>
 
-            {/* Right: Visual Surface */}
+            {/* Right: Visual Surface (Dynamic System Console) */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedRepo.slug}
@@ -308,45 +308,45 @@ export function EnhancedProjectExperience({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={animationConfig.transitions.smooth}
-                className={`relative overflow-hidden rounded-[2.2rem] border border-white/10 p-6 ${accentStyle.surface} ${accentStyle.glow}`}
+                className={`relative overflow-hidden rounded-[2.2rem] border p-6 flex flex-col justify-center ${accentStyle.surface} ${accentStyle.glow}`}
               >
                 {/* Decorative elements */}
-                <div className="pointer-events-none absolute inset-0 opacity-30">
-                  <div className="absolute h-3 w-3 rounded-full bg-white/70 left-[15%] top-[20%] shadow-[0_0_20px_rgba(255,255,255,0.4)]" />
-                  <div className="absolute h-3 w-3 rounded-full bg-white/60 right-[20%] top-[25%] shadow-[0_0_20px_rgba(255,255,255,0.3)]" />
-                  <div className="absolute h-3 w-3 rounded-full bg-white/60 left-[25%] bottom-[20%] shadow-[0_0_20px_rgba(255,255,255,0.3)]" />
-                  <div className="absolute h-3 w-3 rounded-full bg-white/60 right-[18%] bottom-[22%] shadow-[0_0_20px_rgba(255,255,255,0.3)]" />
+                <div className="pointer-events-none absolute inset-0 opacity-20">
+                  <div className="absolute h-3 w-3 rounded-full bg-[#a35d4e] dark:bg-white/70 left-[15%] top-[20%] shadow-[0_0_20px_rgba(255,255,255,0.4)]" />
+                  <div className="absolute h-3 w-3 rounded-full bg-[#a35d4e]/80 dark:bg-white/60 right-[20%] top-[25%] shadow-[0_0_20px_rgba(255,255,255,0.3)]" />
+                  <div className="absolute h-3 w-3 rounded-full bg-[#a35d4e]/80 dark:bg-white/60 left-[25%] bottom-[20%] shadow-[0_0_20px_rgba(255,255,255,0.3)]" />
+                  <div className="absolute h-3 w-3 rounded-full bg-[#a35d4e]/80 dark:bg-white/60 right-[18%] bottom-[22%] shadow-[0_0_20px_rgba(255,255,255,0.3)]" />
                 </div>
 
                 <div className="relative space-y-4">
                   {/* Featured reason */}
-                  <div className="rounded-[1.5rem] border border-white/10 bg-black/30 p-5">
-                    <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Why This Matters</p>
-                    <p className="mt-3 text-lg font-semibold leading-7 text-white">
+                  <div className="rounded-[1.5rem] border border-black/10 dark:border-white/10 bg-white/40 dark:bg-black/30 p-5">
+                    <p className="text-[9px] font-mono uppercase tracking-[0.25em] text-[#a35d4e] dark:text-slate-400">Why This Matters</p>
+                    <p className="mt-2 text-base font-serif font-bold leading-normal text-[#1a1705] dark:text-white">
                       {selectedRepo.featuredReason}
                     </p>
                   </div>
 
                   {/* Challenge */}
-                  <div className="rounded-[1.5rem] border border-white/10 bg-black/30 p-5">
-                    <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Core Challenge</p>
-                    <p className="mt-3 text-base leading-6 text-slate-200">
+                  <div className="rounded-[1.5rem] border border-black/10 dark:border-white/10 bg-white/40 dark:bg-black/30 p-5">
+                    <p className="text-[9px] font-mono uppercase tracking-[0.25em] text-[#a35d4e] dark:text-slate-400">Core Challenge</p>
+                    <p className="mt-2 text-xs leading-relaxed text-[#1a1705]/80 dark:text-slate-200">
                       {selectedRepo.narrative.challenges[0] ?? "Complex problem space"}
                     </p>
                   </div>
 
                   {/* Tech grid */}
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-[1.2rem] border border-white/10 bg-black/20 p-4">
-                      <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Complexity</p>
-                      <p className="mt-2 text-sm font-semibold text-white">
+                    <div className="rounded-[1.2rem] border border-black/10 dark:border-white/10 bg-white/30 dark:bg-black/20 p-4">
+                      <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#1a1705]/50 dark:text-slate-500">Complexity</p>
+                      <p className="mt-2 text-xs font-mono font-bold text-[#1a1705] dark:text-white">
                         {selectedRepo.complexity.label}
                       </p>
                     </div>
-                    <div className="rounded-[1.2rem] border border-white/10 bg-black/20 p-4">
-                      <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Type</p>
-                      <p className="mt-2 text-sm font-semibold text-white">
-                        {selectedRepo.links.demo ? "Live" : "Source"}
+                    <div className="rounded-[1.2rem] border border-black/10 dark:border-white/10 bg-white/30 dark:bg-black/20 p-4">
+                      <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#1a1705]/50 dark:text-slate-500">Type</p>
+                      <p className="mt-2 text-xs font-mono font-bold text-[#1a1705] dark:text-white">
+                        {selectedRepo.links.demo ? "Live Mode" : "Source Node"}
                       </p>
                     </div>
                   </div>
@@ -363,31 +363,31 @@ export function EnhancedProjectExperience({
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={animationConfig.transitions.smooth}
-                className="border-t border-white/8 overflow-hidden"
+                className="border-t border-black/10 dark:border-white/8 overflow-hidden"
               >
-                <div className="p-6 sm:p-8 space-y-6">
-                  <div className="grid gap-6 sm:grid-cols-2">
+                <div className="p-8 sm:p-12 space-y-8 bg-black/[0.01] dark:bg-white/[0.01]">
+                  <div className="grid gap-8 sm:grid-cols-2">
                     <div>
-                      <p className="text-xs uppercase tracking-[0.28em] text-slate-400 mb-3">Problem</p>
-                      <p className="text-base leading-7 text-slate-300">
+                      <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#a35d4e] mb-3">Problem</p>
+                      <p className="text-sm leading-relaxed text-[#1a1705]/80 dark:text-slate-300">
                         {selectedRepo.narrative.problem}
                       </p>
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-[0.28em] text-slate-400 mb-3">Approach</p>
-                      <p className="text-base leading-7 text-slate-300">
+                      <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#a35d4e] mb-3">Approach</p>
+                      <p className="text-sm leading-relaxed text-[#1a1705]/80 dark:text-slate-300">
                         {selectedRepo.narrative.build}
                       </p>
                     </div>
                   </div>
 
                   <div>
-                    <p className="text-xs uppercase tracking-[0.28em] text-slate-400 mb-3">Architecture</p>
+                    <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#a35d4e] mb-3">Architecture</p>
                     <div className="flex flex-wrap gap-2">
                       {selectedRepo.narrative.architecture.map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-slate-300"
+                          className="rounded-xl border border-black/5 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.04] px-3.5 py-1.5 text-xs font-mono text-[#1a1705]/75 dark:text-slate-300"
                         >
                           {item}
                         </span>
@@ -400,11 +400,11 @@ export function EnhancedProjectExperience({
           </AnimatePresence>
 
           {/* Project Navigation */}
-          <div className="border-t border-white/8 p-6 sm:p-8">
+          <div className="border-t border-black/10 dark:border-white/8 p-8 sm:p-12">
             <div className="flex items-center justify-between gap-4 mb-6">
               <div>
-                <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Browse Projects</p>
-                <p className="mt-2 text-sm text-slate-400">
+                <p className="text-[9px] font-mono uppercase tracking-[0.25em] text-[#a35d4e]">Browse Projects</p>
+                <p className="mt-2 text-xs text-[#1a1705]/60 dark:text-slate-400">
                   {activeGroup.label} • {activeGroup.repos.length} total
                 </p>
               </div>
@@ -412,17 +412,17 @@ export function EnhancedProjectExperience({
               <div className="flex items-center gap-2">
                 <motion.button
                   onClick={() => navigateProject(-1)}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/12 bg-white/5 text-slate-300 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="grid h-10 w-10 place-items-center rounded-xl border border-black/10 dark:border-white/12 bg-black/5 dark:bg-white/5 text-[#1a1705]/70 dark:text-slate-300 transition hover:border-black/20 dark:hover:border-white/20 hover:bg-black/10 dark:hover:bg-white/10 hover:text-[#1a1705] dark:hover:text-white"
                 >
                   <ArrowLeft className="h-4 w-4" />
                 </motion.button>
                 <motion.button
                   onClick={() => navigateProject(1)}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/12 bg-white/5 text-slate-300 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="grid h-10 w-10 place-items-center rounded-xl border border-black/10 dark:border-white/12 bg-black/5 dark:bg-white/5 text-[#1a1705]/70 dark:text-slate-300 transition hover:border-black/20 dark:hover:border-white/20 hover:bg-black/10 dark:hover:bg-white/10 hover:text-[#1a1705] dark:hover:text-white"
                 >
                   <ArrowRight className="h-4 w-4" />
                 </motion.button>
@@ -436,6 +436,14 @@ export function EnhancedProjectExperience({
             >
               {activeGroup.repos.map((repo, idx) => {
                 const isActive = repo.slug === selectedRepo.slug;
+                
+                const carouselAccentMap = {
+                  cyan: "border-cyan-500/30 bg-cyan-500/5 text-[#1a1705] dark:text-cyan-300 shadow-[0_4px_20px_rgba(56,189,248,0.1)]",
+                  violet: "border-violet-500/30 bg-violet-500/5 text-[#1a1705] dark:text-violet-300 shadow-[0_4px_20px_rgba(168,85,247,0.1)]",
+                  emerald: "border-emerald-500/30 bg-emerald-500/5 text-[#1a1705] dark:text-emerald-300 shadow-[0_4px_20px_rgba(52,211,153,0.1)]",
+                  orange: "border-orange-500/30 bg-orange-500/5 text-[#1a1705] dark:text-orange-300 shadow-[0_4px_20px_rgba(251,146,60,0.1)]",
+                } as const;
+
                 return (
                   <motion.button
                     key={repo.slug}
@@ -443,21 +451,21 @@ export function EnhancedProjectExperience({
                       setSelectedSlug(repo.slug);
                       setShowDetails(false);
                     }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`min-w-[15rem] snap-start rounded-[1.5rem] border p-4 text-left transition-all duration-300 flex-shrink-0 ${
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                    className={`min-w-[15rem] snap-start rounded-[1.5rem] border p-5 text-left transition-all duration-300 flex-shrink-0 ${
                       isActive
-                        ? "border-cyan-300/30 bg-cyan-300/[0.1] shadow-[0_0_20px_rgba(56,189,248,0.15)]"
-                        : "border-white/10 bg-white/[0.03] hover:border-white/16 hover:bg-white/[0.06]"
+                        ? carouselAccentMap[repo.accent]
+                        : "border-black/5 dark:border-white/10 bg-black/[0.01] dark:bg-white/[0.02] hover:border-black/10 dark:hover:border-white/16 hover:bg-black/[0.03] dark:hover:bg-white/[0.05]"
                     }`}
                   >
-                    <p className="text-xs uppercase tracking-[0.24em] text-slate-500">
+                    <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#a35d4e]">
                       {String(idx + 1).padStart(2, "0")}
                     </p>
-                    <p className="mt-2 text-lg font-semibold tracking-[-0.03em] text-white line-clamp-2">
+                    <p className="mt-2 text-base font-serif font-bold tracking-tight text-[#1a1705] dark:text-white line-clamp-1">
                       {repo.title}
                     </p>
-                    <p className="mt-2 line-clamp-2 text-xs text-slate-400">
+                    <p className="mt-2 line-clamp-2 text-xs text-[#1a1705]/65 dark:text-slate-400">
                       {repo.useCase}
                     </p>
                   </motion.button>

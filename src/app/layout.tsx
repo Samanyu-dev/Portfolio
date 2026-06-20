@@ -1,78 +1,74 @@
 import type { Metadata } from "next";
-import { Sora, Space_Mono } from "next/font/google";
+import { Allura, Archivo, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
+import { siteConfig } from "@/lib/site";
 
-const sora = Sora({
+const allura = Allura({
   subsets: ["latin"],
-  variable: "--font-sora",
+  weight: "400",
+  variable: "--font-logo",
   display: "swap"
 });
 
-const spaceMono = Space_Mono({
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space-mono",
+  variable: "--font-archivo",
   display: "swap"
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://samanyu-portfolio.vercel.app";
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space",
+  display: "swap"
+});
+
+const baseUrl = siteConfig.baseUrl;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: {
-    default: "Samanyu | Interactive Developer Portfolio",
+    default: "Samanyu | AI + Full-Stack Portfolio",
     template: "%s | Samanyu"
   },
-  description:
-    "An immersive portfolio journey built around live GitHub work: AI systems, mobile products, interactive storytelling, and product-led engineering.",
-  metadataBase: new URL(siteUrl),
+  description: siteConfig.seoDescription,
   applicationName: "Samanyu Portfolio",
-  keywords: [
-    "Samanyu",
-    "developer portfolio",
-    "Next.js portfolio",
-    "AI engineer",
-    "creative developer",
-    "product storyteller",
-    "interactive portfolio"
-  ],
-  alternates: {
-    canonical: "/"
-  },
   openGraph: {
-    title: "Samanyu | Interactive Developer Portfolio",
-    description:
-      "A cinematic, GitHub-driven portfolio experience with project chapters, motion systems, and immersive deep dives.",
-    url: siteUrl,
+    title: "Samanyu | AI + Full-Stack Portfolio",
+    description: siteConfig.seoDescription,
+    type: "website",
     siteName: "Samanyu Portfolio",
-    images: ["/opengraph-image"],
-    type: "website"
+    url: baseUrl,
+    images: ["/opengraph-image"]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Samanyu | Interactive Developer Portfolio",
-    description:
-      "A cinematic, GitHub-driven portfolio experience with project chapters, motion systems, and immersive deep dives.",
+    title: "Samanyu | AI + Full-Stack Portfolio",
+    description: siteConfig.seoDescription,
     images: ["/twitter-image"]
   },
+  alternates: {
+    canonical: "/"
+  },
+  keywords: [
+    "Samanyu Reddy Allipuram",
+    "AI engineer",
+    "full stack developer",
+    "Three.js portfolio",
+    "Next.js portfolio",
+    "Hyderabad engineer"
+  ],
   robots: {
     index: true,
     follow: true
   }
 };
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${sora.variable} ${spaceMono.variable} font-sans antialiased`}
-        style={{ background: "#07060e", color: "#f0eeff" }}
-      >
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className={`${allura.variable} ${archivo.variable} ${spaceGrotesk.variable} font-body antialiased`}>
+        {children}
         <Analytics />
       </body>
     </html>
