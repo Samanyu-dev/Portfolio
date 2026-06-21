@@ -21,7 +21,7 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  --accentColor: #c2a4ff;
+  --accentColor: #FF9E7A;
   --backgroundColor: #0b080c;
   --vh: 100vh;
   --vh: 100svh;
@@ -148,8 +148,8 @@ main {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 50%, rgba(194, 164, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(194, 164, 255, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(255, 158, 122, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 158, 122, 0.08) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }

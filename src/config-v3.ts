@@ -131,7 +131,7 @@ export const config = {
         {
             id: 5, title: "hermes-collab-engine", category: "AI/ML", technologies: "Python", image: "/images/hermes_img_1781963886095.png",
             description: "Repo-side AI multi-agent collaboration engine: Leader WBS planning, parallel Workers, dashboard.",
-            repoLink: "https://github.com/Samanyu-dev/hermes-collab-engine", liveLink: ""
+            repoLink: "https://github.com/Samanyu-dev/hermes-collab-engine", liveLink: "https://demo.example.com/sandbox/hermes/"
         },
         {
             id: 6, title: "palisade-scanner", category: "Security", technologies: "Python", image: "/images/palisade_img_1781963901456.png",
@@ -196,7 +196,7 @@ export const config = {
         {
             id: 18, title: "robot_vision", category: "Robotics", technologies: "Python, OpenCV", image: "/images/robotic_vision.png",
             description: "Integrates concepts from robotics, kinematics, and computer vision to demonstrate how a robot perceives its environment.",
-            repoLink: "https://github.com/Samanyu-dev/robot_vision", liveLink: ""
+            repoLink: "https://github.com/Samanyu-dev/robot_vision", liveLink: "https://samanyu-dev.github.io/robot_vision/demo_landing.html"
         },
         {
             id: 19, title: "Loomlane", category: "Backend", technologies: "TypeScript", image: "/images/loomlane_img_1781964025061.png",
@@ -270,6 +270,25 @@ export const config = {
         }
     ],
     blogs: [
+        {
+            id: 5,
+            title: "Synth: AI Data Layer for Endurance Sports",
+            date: "June 2026",
+            summary: "Built an advanced hybrid ML & Multi-LLM pipeline to synthesize coaching heuristics for endurance athletes as a founding engineer assessment.",
+            content: `
+        <p>As part of a Founding Engineer assessment, I built <strong>Synth</strong>, a production-ready backend pipeline and execution visualization tool. The platform ingests raw athletic training data, computes deterministic coaching heuristics, and synthesizes actionable insights using a hybrid Machine Learning & Multi-LLM architecture.</p>
+        
+        <h3>1. Heuristics + LLM Hybrid Architecture</h3>
+        <p>Instead of relying purely on an LLM to hallucinate insights from messy spreadsheets, I built a deterministic <strong>Heuristics Engine</strong> in Python to calculate rolling training loads, heart rate drift, and recovery proxies. This math is then fed into a Graceful Fallback Multi-LLM synthesis layer using Gemini 2.5 Flash as the primary provider, hot-swapping to Claude 3.5 Sonnet to ensure 100% uptime.</p>
+        
+        <h3>2. XGBoost Prediction & RAG Context</h3>
+        <p>I structured an ML pipeline utilizing <code>XGBoost</code> to predict injury probability within a 14-day window based on engineered features like acute/chronic load ratios. Furthermore, I integrated a lightweight RAG layer that queries 5 years of historical coaching notes via token overlap, injecting relevant past athlete context straight into the LLM prompts.</p>
+        
+        <h3>3. Execution Tracing & Zero-Friction Sync</h3>
+        <p>To make the backend tangible, I developed an interactive node-based Execution Tracer on the frontend, allowing users to watch the exact data flow of pipelines in real-time. Athletes can seamlessly log their workouts via Google Sheets or the Strava API, and Synth automatically processes the data, injecting the AI report and visualizations back into their spreadsheet on a new tab.</p>
+        
+        <p>This project was fully containerized with Docker, enforced strict Pydantic data contracts, and deployed live on Railway.</p>`
+        },
         {
             id: 1,
             title: "Steps AI Online Hackathon",

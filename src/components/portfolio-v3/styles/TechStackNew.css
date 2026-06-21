@@ -33,7 +33,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, rgba(138, 43, 226, 0.2) 0%, rgba(11, 8, 12, 1) 70%);
+  background: radial-gradient(circle at center, rgba(255, 127, 80, 0.2) 0%, rgba(11, 8, 12, 1) 70%);
 }
 
 .techstack-content {
@@ -109,7 +109,7 @@
 }
 
 .hex-wrapper:hover .hex {
-  background: rgba(138, 43, 226, 0.5);
+  background: rgba(255, 127, 80, 0.5);
   box-shadow: 0 0 20px var(--primary);
 }
 

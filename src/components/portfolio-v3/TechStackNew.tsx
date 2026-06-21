@@ -60,6 +60,9 @@ const TechStackNew = () => {
   return (
     <div className="techstack-new">
       <div className="techstack-video-container">
+        <video autoPlay loop muted playsInline className="techstack-video">
+          <source src="/video/video.webm" type="video/webm" />
+        </video>
         <div className="techstack-glow-bg"></div>
       </div>
 

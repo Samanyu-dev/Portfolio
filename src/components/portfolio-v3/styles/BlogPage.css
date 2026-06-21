@@ -57,7 +57,7 @@
 
 .blog-post:hover {
   transform: translateY(-5px);
-  border-color: rgba(138, 43, 226, 0.3);
+  border-color: rgba(255, 127, 80, 0.3);
 }
 
 .blog-meta {
@@ -73,7 +73,7 @@
 
 .blog-category {
   color: var(--primary);
-  background: rgba(138, 43, 226, 0.1);
+  background: rgba(255, 127, 80, 0.1);
   padding: 5px 15px;
   border-radius: 20px;
 }
