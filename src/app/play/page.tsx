@@ -12,6 +12,7 @@ export default function PlayChess() {
 
   useEffect(() => {
     checkStatus();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [game]);
 
   const makeAMove = (move: string | { from: string; to: string; promotion?: string }) => {
@@ -92,13 +93,18 @@ export default function PlayChess() {
             </div>
 
             <div className="rounded-xl overflow-hidden border border-white/10 shadow-inner">
-              <Chessboard 
-                position={game.fen()} 
-                onPieceDrop={onDrop}
-                customDarkSquareStyle={{ backgroundColor: '#2a2a2a' }}
-                customLightSquareStyle={{ backgroundColor: '#e0e0e0' }}
-                boardOrientation="white"
-              />
+              {(() => {
+                const ChessboardAny = Chessboard as any;
+                return (
+                  <ChessboardAny 
+                    position={game.fen()} 
+                    onPieceDrop={onDrop}
+                    customDarkSquareStyle={{ backgroundColor: '#2a2a2a' }}
+                    customLightSquareStyle={{ backgroundColor: '#e0e0e0' }}
+                    boardOrientation="white"
+                  />
+                );
+              })()}
             </div>
             
             <div className="mt-6 flex justify-between items-center">
@@ -119,7 +125,7 @@ export default function PlayChess() {
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <h3 className="text-lg font-bold text-white mb-2">Why a Chess Easter Egg?</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                As an AI Engineer, I specialize in state-space search algorithms (MCTS) and reinforcement learning. While this bot just makes random moves for now, it's a nod to classical AI problem solving.
+                As an AI Engineer, I specialize in state-space search algorithms (MCTS) and reinforcement learning. While this bot just makes random moves for now, it&apos;s a nod to classical AI problem solving.
               </p>
             </div>
           </div>
