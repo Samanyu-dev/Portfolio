@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Samanyu | AI + Full-Stack Portfolio";
+export const alt = "Samanyu | AI + Full Stack Portfolio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -26,12 +26,12 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 950 }}>
           <div style={{ fontSize: 76, fontWeight: 700, lineHeight: 1 }}>Samanyu Reddy Allipuram</div>
           <div style={{ fontSize: 32, lineHeight: 1.28, color: "#d7e5ff" }}>
-            AI systems, full-stack product builds, and cinematic interfaces with production reliability.
+            AI systems, full stack product builds, and cinematic interfaces with production reliability.
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#c8daff" }}>
           <span>samanyuallipuram.vercel.app</span>
-          <span>GitHub-powered project intelligence</span>
+          <span>GitHub powered project intelligence</span>
         </div>
       </div>
     ),

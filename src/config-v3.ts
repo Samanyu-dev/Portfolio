@@ -2,8 +2,8 @@ export const config = {
     developer: {
         name: "Samanyu",
         fullName: "Samanyu Reddy Allipuram",
-        title: "AI & Full-Stack Developer",
-        description: "AI Systems & Full-Stack Engineer — shipping autonomous systems and production software. Passionate about machine learning, deep learning, and creating next-gen autonomous agents."
+        title: "App Developer + AI Engineer + Backend Developer + MLOps",
+        description: "App Developer + AI Engineer + Backend Developer + MLOps — shipping autonomous systems and production software. Passionate about machine learning, deep learning, and creating next-gen autonomous agents."
     },
     social: {
         github: "Samanyu-dev",
@@ -269,9 +269,50 @@ export const config = {
             repoLink: "https://github.com/Samanyu-dev/Network_Performance", liveLink: ""
         }
     ],
-        blogs: [
+    blogs: [
         {
             id: 1,
+            title: "Steps AI Online Hackathon",
+            date: "June 2026",
+            summary: "Building an enterprise grade AI mock interview platform with SSE streaming and grading.",
+            content: `
+        <p>For the Steps AI Hackathon, I architected and built a complete AI mock interview platform. The goal was to create an intelligent system capable of analyzing resumes, conducting adaptive conversational interviews, and generating premium performance reports.</p>
+        
+        <h3>1. The Architecture</h3>
+        <p>I designed a decoupled architecture featuring a Next.js frontend and a FastAPI backend. For the core logic, I integrated the <strong>Groq Cloud API</strong> running <code>llama-3.3-70b-versatile</code>, which allowed for ultra-fast, sub-500ms inference crucial for real-time interactions. Data persistence was handled with SQLite.</p>
+        
+        <h3>2. Core Features Developed</h3>
+        <p>The backend was loaded with complex features. I implemented layout-aware text extraction for PDFs and DOCX using <code>PyMuPDF</code>. During the interview, I utilized Server-Sent Events (SSE) for token streaming, creating a seamless multi-turn conversation loop. I also built a question deduplication engine to ensure the AI recruiter persona never repeated topics.</p>
+        
+        <h3>3. Grading and Report Generation</h3>
+        <p>After the session, the system automatically runs rigid performance diagnostics, evaluating the transcript against specific competency frameworks using the LLM in JSON mode. Finally, I used <code>FPDF2</code> to compile these insights into a premium branded PDF scorecard featuring radar charts and targeted recommendations.</p>
+        
+        <p>Building this required orchestrating everything from GSAP micro-interactions on the frontend to thread-safe sliding window rate limiters and API gatekeepers on the backend. It was a massive full-stack achievement.</p>
+        <div style="margin: 30px 0;">
+          <img src="/images/stepsai.png" alt="Steps AI Dashboard" style="max-width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+        </div>`
+        },
+        {
+            id: 2,
+            title: "Nomura Global Markets Quant Challenge 2026",
+            date: "June 2026",
+            summary: "Developing a C++ derivatives pricing engine and a machine learning market-making system to tackle quantitative finance challenges.",
+            content: `
+        <p>Participating in the Nomura Global Markets Quant Challenge helped me a lot in my knowledge towards quant. The challenge was split into two primary tracks: derivatives pricing and algorithmic market making.</p>
+        
+        <h3>Track 1: C++ Swap Pricing Engine</h3>
+        <p>For the pricing challenge, I developed a standalone C++17 engine (<code>q2_pricing.cpp</code>) to parse market instruments, bootstrap discount curves from cash and swap quotes, and price target swaps. I implemented both log-linear and averaged quadratic interpolation methods to ensure the curves remained arbitrage-free and the discount factors strictly positive.</p>
+        <p>A key focus was on robust risk methodology. I computed PV sensitivities by analytically differentiating the sequential bootstrap equations, using the chain rule to pass sensitivities through the interpolated curve down to the root market quotes.</p>
+
+        <h3>Track 2: Market Making & Adverse Selection</h3>
+        <p>The second challenge involved managing a market-making book. The core problem was adverse selection—where toxic trades cause losses over longer holding horizons. I analyzed adversity profiles across different clients, classifying them as either profitable or costly, and establishing minimum half-spreads.</p>
+        <p>To optimize execution, I trained a <code>HistGradientBoostingClassifier</code> per horizon to predict adversity based on trade size, spread, and client identity. Trades with a high predicted adversity probability were systematically externalized. Finally, I built a dynamic quoting function that adjusted bid-ask spreads asymmetrically based on inventory pressure and realized volatility, protecting the book from excessive inventory risk.</p>
+
+        <h3>Visualizing the Models</h3>
+        <p>To tie it all together, I built a static frontend dashboard that consumed the outputs from both the C++ and Python models, dynamically visualizing the pricing outputs and the PnL performance of the market-making strategies.</p>`
+        },
+        {
+            id: 3,
             title: "From First Issue to Core Maintainer: My Journey with M-Vis",
             date: "June 2026",
             summary: "My journey contributing to M-vis, a cross-platform memory visualizer tool written in Rust, and becoming a core maintainer.",
@@ -297,24 +338,27 @@ export const config = {
         <p>This journey has been incredibly rewarding, teaching me the intricacies of Rust, kernel-level memory APIs, and the beautiful chaos of open-source collaboration.</p>`
         },
         {
-            id: 2,
+            id: 4,
             title: "Scaler x Meta x OpenEnv Hackathon: A 48-Hour Sprint to the Finals",
             date: "April 2026",
             summary: "How we built Crisis Comm Env and reached the finals in the Meta OpenEnv HF Scaler challenge.",
             content: `
         <p>Participating in the Scaler x Meta x HuggingFace OpenEnv Hackathon was one of the most intense and rewarding experiences of my development journey. We built <strong>Crisis Comm Env</strong>, a multi-turn OpenEnv environment for training and evaluating AI agents on crisis communication.</p>
         
-        <h3>April 6th: The Spark</h3>
-        <p>It started when I officially registered for the hackathon. The challenge of building scalable RL environments within the Meta OpenEnv framework immediately caught my attention.</p>
+        <h3>April 6th: The Start</h3>
+        <p>It started when I officially registered for the hackathon, my wingmates were participating and they only allowed team of 3 we were 4 so i thought i will either do solo or approach a friend to team up with. The challenge of building scalable RL environments within the Meta OpenEnv framework immediately caught my attention.</p>
         
         <h3>April 7th: Assembling the Team</h3>
-        <p>I reached out and teamed up with my friend Lavanya Tulsiani. We brainstormed ideas and decided to tackle crisis communication—a scenario where AI agents must navigate rapidly evolving, high-stakes information environments.</p>
+        <p>I teamed up with <a href="https://www.linkedin.com/in/lavanya-tulsiani-62142b2b1/" target="_blank" rel="noopener noreferrer" style="color: #aa42ff; text-decoration: underline;">Lavanya Tulsiani</a> to make a team of two for the hackathon.</p>
         
         <h3>April 8th: The Build Phase</h3>
-        <p>This was our core development sprint. We architected the environment state logic and reward functions. I focused heavily on integrating the Meta OpenEnv APIs, setting up the multi-turn conversation simulation, and ensuring our training loops could properly evaluate agent decision-making under stress. Lavanya worked on refining the data pipelines and evaluating the Hugging Face model integrations.</p>
+        <p>This was our core development sprint. We architected the environment state logic and reward functions. I focused heavily on integrating the Meta OpenEnv APIs, setting up the multi turn conversation simulation, and ensuring our training loops could properly evaluate agent decision making under stress. Teammate worked on refining the data pipelines and evaluating the Hugging Face model integrations.</p>
+        <div style="margin: 30px 0;">
+          <img src="/images/crisis-com.png" alt="Crisis Comm Architecture" style="max-width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+        </div>
         
         <h3>April 9th: Round 1 Validated</h3>
-        <p>After pushing through the night, we submitted our project. Later that day, we received the incredible news that our Round 1 submission was officially validated!</p>
+        <p>After pushing through the night, we submitted our project.Midnight, we received the incredible news that our Round 1 submission was officially validated!</p>
         <div style="display: flex; gap: 20px; margin: 30px 0; align-items: center;">
           <img src="/images/submission-validated.png" alt="Submission Validated" style="flex: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
           <img src="/images/dashboard.jpg" alt="Project Dashboard" style="flex: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />

@@ -9,7 +9,7 @@ export const skillDomains: SkillDomain[] = [
   },
   {
     title: "Web Dev",
-    description: "Modern interfaces and API-connected full-stack product surfaces.",
+    description: "Modern interfaces and API-connected full stack product surfaces.",
     skills: ["React.js", "Next.js", "TypeScript", "Node.js", "PHP", "REST APIs"],
     color: "secondary"
   },

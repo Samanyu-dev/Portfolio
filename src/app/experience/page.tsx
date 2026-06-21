@@ -4,7 +4,7 @@ import { achievements, education, experienceNodes } from "@/data/profile";
 
 export const metadata: Metadata = {
   title: "Experience",
-  description: "Career evolution flow-map with roles, responsibilities, achievements, and skill growth."
+  description: "Career evolution flow map with roles, responsibilities, achievements, and skill growth."
 };
 
 export default function ExperiencePage() {

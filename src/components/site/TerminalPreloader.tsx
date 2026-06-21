@@ -71,7 +71,7 @@ export function TerminalPreloader({ onComplete }: TerminalPreloaderProps) {
             {"\n"}
             <span className="text-white/40"># {siteConfig.name}</span>
             {"\n"}
-            <span className="text-white/40"># AI + Full-Stack Engineer</span>
+            <span className="text-white/40"># App Developer + AI Engineer + Backend Developer + MLOps</span>
             {"\n\n"}
             <span className="text-violet-400">export</span> STACK=
             <span className="text-cyan-300">&quot;Next.js · React · Python · Flutter · AI&quot;</span>

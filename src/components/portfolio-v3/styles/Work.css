@@ -160,19 +160,26 @@
 
 @media (max-width: 768px) {
   .work-content h2 {
-    font-size: 40px;
+    font-size: clamp(30px, 8vw, 40px);
     margin-bottom: 40px;
   }
+  .carousel-container {
+    padding: 0 15px 30px 15px; /* Add padding to prevent flush edges cutting off shadows */
+    gap: 20px;
+  }
   .project-card {
-    width: 300px;
+    width: min(320px, 85vw);
   }
   .project-image {
-    height: 180px;
+    height: clamp(160px, 45vw, 220px);
   }
   .project-title {
-    font-size: 20px;
+    font-size: clamp(18px, 5vw, 24px);
   }
   .project-desc {
     font-size: 14px;
+  }
+  .project-info {
+    padding: 20px;
   }
 }

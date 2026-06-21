@@ -42,7 +42,7 @@
 
   .landing-intro h1 {
     word-spacing: 0.1em;
-    font-size: 32px !important;
+    font-size: clamp(24px, 9vw, 32px) !important;
     /* Ensure nice size */
     line-height: 1.2 !important;
     margin: 0;

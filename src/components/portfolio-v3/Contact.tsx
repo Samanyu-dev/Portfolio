@@ -54,7 +54,7 @@ const Contact = () => {
             <Sparkles className="h-3.5 w-3.5 text-[var(--primary)]" />
             Let&apos;s Connect
           </span>
-          <h2 className="mt-8 text-5xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl">
+          <h2 className="mt-8 text-4xl sm:text-6xl lg:text-7xl font-black tracking-[-0.06em] text-white">
             Let&apos;s build the <span className="text-[var(--primary)]">future</span>.
           </h2>
         </motion.div>
@@ -92,7 +92,7 @@ const Contact = () => {
 
             <div className="grid gap-0 lg:grid-cols-[1.2fr_1fr]">
               {/* Left: Input Space */}
-              <div className="p-8 sm:p-12">
+              <div className="p-6 sm:p-12">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="relative">
                     <img
@@ -160,7 +160,7 @@ const Contact = () => {
               </div>
 
               {/* Right: Socials & Quick Facts */}
-              <div className="border-l border-white/5 bg-white/[0.02] p-8 sm:p-12">
+              <div className="border-l border-white/5 bg-white/[0.02] p-6 sm:p-12">
                 <div className="space-y-12">
                   <div>
                     <h4 className="font-mono text-[10px] uppercase tracking-[0.4em] text-gray-400 mb-6">Social Profiles</h4>

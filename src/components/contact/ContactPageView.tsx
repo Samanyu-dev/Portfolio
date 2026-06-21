@@ -28,7 +28,7 @@ export function ContactPageView({ contact }: ContactPageViewProps) {
       <SectionIntro
         eyebrow="Contact"
         title="Let’s build the next high-leverage product"
-        description="Available for internships, engineering collaborations, hackathon teams, and product-focused AI/full-stack opportunities."
+        description="Available for internships, engineering collaborations, hackathon teams, and product-focused AI/full stack opportunities."
       />
 
       <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">

@@ -78,7 +78,7 @@ export function ContactPage({ contact }: ContactPageProps) {
 
         <RevealBlock className="mt-16 max-w-xl" delay={0.15}>
           <p className="text-sm leading-relaxed text-text-2">
-            Open for internships, hackathon teams, and product-focused AI / full-stack collaborations. Based in Hyderabad,
+            Open for internships, hackathon teams, and product-focused AI / full stack collaborations. Based in Hyderabad,
             India — happy to work remote.
           </p>
         </RevealBlock>

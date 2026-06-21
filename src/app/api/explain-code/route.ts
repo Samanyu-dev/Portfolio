@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
 
 Guidelines:
 - Explain the "why" not just the "what"
-- Highlight architectural decisions and trade-offs
-- Connect code to real-world problems it solves
+- Highlight architectural decisions and trade offs
+- Connect code to real world problems it solves
 - Show systems thinking and engineering depth
 - Keep explanations accessible but technically accurate
 - Use analogies where helpful

@@ -9,7 +9,7 @@ const rows = [
   [
     { name: "Machine Learning", icon: "https://img.icons8.com/color/48/artificial-intelligence.png", url: "#" },
     { name: "Deep Learning", icon: "https://img.icons8.com/color/48/brain.png", url: "#" },
-    { name: "Reinforced Learning", icon: "https://img.icons8.com/color/48/machine-learning.png", url: "#" },
+    { name: "Reinforced Learning", icon: "https://img.icons8.com/fluency/48/robot-3.png", url: "#" },
   ],
   // Row 2 - 4 items
   [
@@ -23,7 +23,7 @@ const rows = [
     { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", url: "https://python.org" },
     { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", url: "https://fastapi.tiangolo.com" },
     { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg", url: "https://isocpp.org/" },
-    { name: "Rust", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg", url: "https://www.rust-lang.org/" },
+    { name: "Rust", icon: "https://skillicons.dev/icons?i=rust", url: "https://www.rust-lang.org/" },
     { name: "Dart", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg", url: "https://dart.dev/" },
   ],
   // Row 4 - 6 items
@@ -51,7 +51,7 @@ const rows = [
     { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", url: "https://git-scm.com" },
     { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", url: "https://aws.amazon.com" },
     { name: "Vercel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg", url: "https://vercel.com" },
-    { name: "Render", icon: "https://img.icons8.com/color/48/cloud-hosting.png", url: "https://render.com/" },
+    { name: "Render", icon: "https://skillicons.dev/icons?i=render", url: "https://render.com/" },
     { name: "Railway", icon: "https://railway.app/brand/logo-light.png", url: "https://railway.app/" }
   ]
 ];
