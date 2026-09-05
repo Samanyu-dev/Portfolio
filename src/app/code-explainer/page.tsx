@@ -4,7 +4,7 @@ import { AppShell } from "@/components/ui/AppShell";
 
 export const metadata: Metadata = {
   title: "AI Code Explainer",
-  description: "Explain any codebase using Claude AI. Powered by Claude Opus 4.6",
+  description: "Explain any codebase using Claude AI. Powered by Claude Opus 5",
 };
 
 export default function CodeExplainerPage() {

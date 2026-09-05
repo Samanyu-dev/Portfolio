@@ -3,6 +3,7 @@ import { Allura, Archivo, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "@/lib/site";
+import { SiteShell } from "@/components/site/SiteShell";
 
 const allura = Allura({
   subsets: ["latin"],
@@ -67,8 +68,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927325854717324"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`${allura.variable} ${archivo.variable} ${spaceGrotesk.variable} font-body antialiased`}>
-        {children}
+        <SiteShell>{children}</SiteShell>
         <Analytics />
       </body>
     </html>

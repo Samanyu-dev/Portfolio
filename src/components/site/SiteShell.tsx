@@ -13,6 +13,11 @@ export function SiteShell({ children }: PropsWithChildren) {
   const isHome = pathname === "/";
   const isProjects = pathname === "/projects";
 
+  if (isHome) {
+    // homepage runs its own nav + scroll experience (portfolio-v3/MainContainer)
+    return <>{children}</>;
+  }
+
   return (
     <div className={cn("relative min-h-screen text-text-0", isProjects ? "bg-[#050508]" : "bg-bg-0")}>
       {!isHome && !isProjects ? <FluidParticlesBackground fixed particleCount={800} /> : null}

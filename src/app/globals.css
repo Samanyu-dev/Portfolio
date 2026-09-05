@@ -18,13 +18,36 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
   --accentColor: #FF9E7A;
   --backgroundColor: #0b080c;
   --vh: 100vh;
   --vh: 100svh;
+
+  /* design tokens consumed by tailwind.config.ts (site/* pages) */
+  --background: var(--backgroundColor);
+  --foreground: #eae5ec;
+  --card: #14111a;
+  --border: rgba(255, 255, 255, 0.1);
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: #9a94a6;
+  --primary: var(--accentColor);
+  --bg-0: #0b080c;
+  --bg-1: #14111a;
+  --bg-2: #1c1824;
+  --text-0: #f5f2f7;
+  --text-1: #c9c3d1;
+  --text-2: #8b8494;
+  --brand-a: #ff9e7a;
+  --brand-b: #7bdff6;
+  --brand-c: #b98cff;
+}
+
+/* the 3D homepage drives its own custom cursor and drag interactions;
+   scope no-select to it instead of the whole site so other pages stay selectable */
+.container-main {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -234,4 +257,122 @@ main {
 .hover-link:hover .hover-in {
   transform: translateY(-100%);
   color: var(--accentColor);
+}
+
+/* site/* design system — shared across /experience, /projects, /contact, /play, /code-explainer */
+.site-container {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-inline: 1.5rem;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  background: var(--bg-1);
+  color: var(--text-0);
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--brand-a);
+}
+
+.page-title,
+.section-title {
+  font-family: var(--font-archivo), Archivo, sans-serif;
+  font-weight: 600;
+  color: var(--text-0);
+}
+
+.page-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.glass,
+.glass-panel {
+  background: color-mix(in srgb, var(--bg-1) 60%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-panel {
+  border-radius: 1.5rem;
+}
+
+.surface-card {
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.chip,
+.metric-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-1);
+  color: var(--text-1);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--brand-a);
+  color: #1a1108;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  color: var(--text-0);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  border-color: var(--brand-a);
+  color: var(--brand-a);
 }

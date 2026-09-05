@@ -9,12 +9,11 @@ import { NavThemeToggle } from "@/components/site/NavThemeToggle";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { href: "/", label: "Home", hash: "#hero" },
-  { href: "/#projects", label: "Projects", hash: "#projects" },
-  { href: "/#experience", label: "Experience", hash: "#experience" },
-  { href: "/#skills", label: "Skills", hash: "#skills" },
-  { href: "/projects", label: "Showcase", hash: null },
-  { href: "/#contact", label: "Contact", hash: "#contact" }
+  { href: "/", label: "Home", hash: null },
+  { href: "/#work", label: "Work", hash: "#work" },
+  { href: "/experience", label: "Experience", hash: null },
+  { href: "/projects", label: "Projects", hash: null },
+  { href: "/contact", label: "Contact", hash: null }
 ] as const;
 
 export function SiteNav() {
