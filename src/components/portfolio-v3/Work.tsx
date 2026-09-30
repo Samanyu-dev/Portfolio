@@ -1,63 +1,35 @@
 "use client";
-import "./styles/Work.css";
 import { config } from "@/config-v3";
-import { FaGithub } from "react-icons/fa";
-import { MdOutlineArrowOutward } from "react-icons/md";
-import Link from "next/link";
+import RadialCarousel, { WheelItem } from "./RadialCarousel";
+
+// Wheel shows a curated set; the full list lives on GitHub / detail pages.
+const FEATURED = ["gomarg","amazon-ml-entity-resolution","AIgnition","palisade-scanner","m-vis","infra-incident-copilot",
+  "codeforge","crisis_comm_env","Aether","oracle-agent","stepsai","durgapuja","Loomlane"];
+
+const NAMES: Record<string, string> = {
+  "amazon-ml-entity-resolution": "Amazon ML Entity Resolution", "infra-incident-copilot": "Incident Copilot",
+  "palisade-scanner": "Palisade Scanner", gomarg: "GoMarg", codeforge: "CodeForge", crisis_comm_env: "Crisis Comm Env",
+  "oracle-agent": "Oracle Agent", durgapuja: "Durga Puja", stepsai: "Steps AI",
+};
+const slug = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
 const Work = () => {
-  return (
-    <div className="work-section" id="work">
-      <div className="work-content section-container">
-        <h2>My <span>Projects</span></h2>
-        
-        <div className="carousel-container">
-          {config.projects.map((project) => (
-            <div key={project.id} className="project-card group">
-              <div 
-                className="project-image flex items-center justify-center relative overflow-hidden" 
-                style={{ background: 'linear-gradient(135deg, rgba(25,25,25,1) 0%, rgba(10,10,10,1) 100%)' }}
-              >
-                <div className="absolute inset-0 bg-[var(--primary)]/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[var(--primary)]/10 blur-3xl" />
-                <div className="z-10 flex flex-col items-center">
-                  <span className="text-6xl font-black tracking-tighter text-white/90">
-                    {project.title.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase()}
-                  </span>
-                </div>
-                <div className="project-category-badge z-20">{project.category}</div>
-              </div>
-              
-              <div className="project-info">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-tech">{project.technologies}</p>
-                <p className="project-desc">{project.description}</p>
-                
-                <div className="project-links mt-auto pt-4 flex-wrap">
-                  <Link 
-                    href={`/projects/${project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} 
-                    className="project-btn text-[var(--primary)] bg-[var(--primary)]/10 border-[var(--primary)]/20 hover:bg-[var(--primary)]/20"
-                  >
-                    View Details
-                  </Link>
-                  {project.repoLink && (
-                    <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="project-btn">
-                      <FaGithub /> Repo
-                    </a>
-                  )}
-                  {(project as any).liveLink && (
-                    <a href={(project as any).liveLink} target="_blank" rel="noopener noreferrer" className="project-btn">
-                      <MdOutlineArrowOutward /> Live
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  const items: WheelItem[] = FEATURED
+    .map((t) => config.projects.find((p) => p.title === t))
+    .filter((p): p is (typeof config.projects)[number] => !!p)
+    .map((p, i) => ({
+      title: NAMES[p.title] ?? p.title,
+      badge: p.category,
+      description: `${p.description} (${p.technologies})`,
+      image: p.image,
+      href: `/projects/${slug(p.title)}`,
+      hue: (i * 53 + 200) % 360,
+    }));
+  items.push({
+    title: "And Many More...", badge: "GitHub", href: `https://github.com/${config.social.github}`, external: true, hue: 15,
+    description: "30+ more projects across mobile, backend, ML and systems: browse them all on GitHub.",
+  });
+  return <RadialCarousel kind="project" id="work" heading="My" accent="Projects" model="/models/3d/rack.glb" modelScale={0.9} items={items} />;
 };
 
 export default Work;

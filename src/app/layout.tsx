@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Allura, Archivo, Space_Grotesk } from "next/font/google";
+import { Allura, Archivo, Space_Grotesk, Bangers, Permanent_Marker } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "@/lib/site";
@@ -11,6 +11,9 @@ const allura = Allura({
   variable: "--font-logo",
   display: "swap"
 });
+
+const bangers = Bangers({ subsets: ["latin"], weight: "400", variable: "--font-bangers", display: "swap" });
+const marker = Permanent_Marker({ subsets: ["latin"], weight: "400", variable: "--font-marker", display: "swap" });
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -75,7 +78,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${allura.variable} ${archivo.variable} ${spaceGrotesk.variable} font-body antialiased`}>
+      <body className={`${bangers.variable} ${marker.variable} ${allura.variable} ${archivo.variable} ${spaceGrotesk.variable} font-body antialiased`}>
         <SiteShell>{children}</SiteShell>
         <Analytics />
       </body>

@@ -1,0 +1,20 @@
+.chess-section{position:relative;z-index:10;padding:90px 4vw 70px;min-height:100vh}
+.chess-title{text-align:center;font-size:clamp(40px,6vw,84px);margin:0 0 24px}
+.chess-wrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;max-width:1300px;margin:0 auto}
+.chess-canvas{position:relative;height:min(72vh,640px);min-height:420px;border:4px solid #000;border-radius:18px;background:rgba(255,255,255,.12);backdrop-filter:blur(2px);box-shadow:8px 8px 0 #000;overflow:hidden}
+.chess-side{display:flex;flex-direction:column;gap:14px}
+.chess-bubble{position:relative;background:#fff;color:#111;border:3px solid #000;border-radius:16px;padding:14px 16px;font-family:var(--font-space),sans-serif;font-weight:600;box-shadow:5px 5px 0 #000;min-height:64px}
+.chess-bubble:after{content:"";position:absolute;left:24px;bottom:-14px;border:8px solid transparent;border-top:14px solid #000}
+.chess-row{display:flex;gap:8px;flex-wrap:wrap}
+.chess-side button{flex:1;font-family:var(--font-bangers),Impact;letter-spacing:1.5px;font-size:20px;background:#fff;color:#000;border:3px solid #000;border-radius:12px;padding:8px 12px;box-shadow:4px 4px 0 #000;cursor:pointer;transition:transform .15s}
+.chess-side button:hover{transform:translate(-2px,-2px) rotate(-1deg)}.chess-side button.on{background:#ffe600}
+.chess-chaos.on{background:#ff1f8e;color:#fff;animation:chaosPulse .6s infinite alternate}
+@keyframes chaosPulse{to{transform:rotate(1.5deg) scale(1.04)}}
+.chess-note{font-family:var(--font-marker),cursive;color:#fff;text-shadow:2px 2px 0 #000;font-size:14px}
+.chess-pow{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font-family:var(--font-bangers),Impact;font-size:clamp(60px,10vw,130px);color:#ffe600;
+  -webkit-text-stroke:5px #000;paint-order:stroke fill;text-shadow:8px 8px 0 #ff1f8e;pointer-events:none;animation:pow .9s ease-out forwards}
+@keyframes pow{0%{transform:translate(-50%,-50%) scale(.2) rotate(-20deg);opacity:0}25%{transform:translate(-50%,-50%) scale(1.15) rotate(6deg);opacity:1}100%{transform:translate(-50%,-70%) scale(1) rotate(-3deg);opacity:0}}
+.chess-over{position:absolute;inset:0;display:flex;flex-direction:column;gap:18px;align-items:center;justify-content:center;background:rgba(0,0,0,.55);font-family:var(--font-bangers),Impact;font-size:clamp(40px,7vw,90px);color:#ffe600;-webkit-text-stroke:4px #000;paint-order:stroke fill;text-align:center}
+.chess-over button{font-family:var(--font-bangers);font-size:28px;background:#ff1f8e;color:#fff;border:4px solid #000;border-radius:14px;padding:8px 28px;cursor:pointer;box-shadow:5px 5px 0 #000}
+@media(max-width:900px){.chess-wrap{grid-template-columns:1fr}}
+.chess-side .chess-chaos{flex:none}

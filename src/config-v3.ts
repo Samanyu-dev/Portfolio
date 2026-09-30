@@ -109,6 +109,16 @@ export const config = {
     ],
     projects: [
         {
+            id: 33, title: "amazon-ml-entity-resolution", category: "AI/ML", technologies: "Python, C++, CatBoost, transformers", image: "/images/covers/amazon-ml.png",
+            description: "Amazon ML Challenge 2026: multilingual business entity resolution, scoring 0.986 macro F0.5 on the public leaderboard.",
+            repoLink: "https://github.com/Samanyu-dev/amazon-ml-challenge-2026-entity-resolution", liveLink: ""
+        },
+        {
+            id: 34, title: "infra-incident-copilot", category: "Cloud", technologies: "TypeScript, Cloudflare Workers, Durable Objects", image: "/images/covers/incident-copilot.png",
+            description: "On-call triage agent: sequenced diagnostics, LLM synthesis and persistent incident memory on Cloudflare.",
+            repoLink: "https://github.com/Samanyu-dev/infra-incident-copilot", liveLink: "https://infra-incident-copilot.infra-incident-copilot.workers.dev"
+        },
+        {
             id: 1, title: "gomarg", category: "AI/ML", technologies: "Next.js, PostgreSQL, Apollo API, SDR", image: "/images/gomarg_img_1781963847630.png",
             description: "An AI sales agent that autonomously sources leads via Apollo, researches prospects, and drafts highly personalized outreach sequences.",
             repoLink: "https://github.com/Samanyu-dev/gomarg", liveLink: ""
