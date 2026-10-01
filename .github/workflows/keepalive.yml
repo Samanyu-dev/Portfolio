@@ -1,0 +1,13 @@
+# Free Hugging Face Spaces sleep after ~48h of no traffic. A visit twice a day keeps the demos linked from the portfolio awake.
+name: keep-demos-awake
+on:
+  schedule: [{ cron: "0 */12 * * *" }]
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for u in sammy1808-codeforge sammy1808-crisis-comm sammy1808-oracleagent; do
+            curl -s -o /dev/null -w "$u %{http_code}\n" --max-time 60 "https://$u.hf.space" || true
+          done

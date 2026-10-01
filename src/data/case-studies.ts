@@ -3,6 +3,7 @@ export type CaseStudy = {
   stats: { label: string; value: string }[];
   timeline?: { when: string; what: string; score?: string }[];
   sections: { heading: string; body: string }[];
+  team?: { name: string; url: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -12,6 +13,11 @@ export const caseStudies: CaseStudy[] = [
     result: "Rank 389 of 10,000+ teams (89k+ individuals registered)",
     summary: "Match noisy, multilingual business records to the right entity at scale. Metric: macro F0.5 per Source-1 entity. France was 15% of test and had no training labels.",
     repo: "https://github.com/Samanyu-dev/amazon-ml-challenge-2026-entity-resolution",
+    team: [
+      { name: "Himnish", url: "https://www.linkedin.com/in/himnish-lalchandani-29a453290/" },
+      { name: "Ankur", url: "https://www.linkedin.com/in/sarkar-ankur" },
+      { name: "Pranshu", url: "https://www.linkedin.com/in/pranshu-suman-6b430a1a8/" },
+    ],
     stats: [{ label: "Best public score", value: "0.986382" }, { label: "Final rank", value: "389" }, { label: "Teams", value: "10,000+" }, { label: "Days", value: "3" }],
     timeline: [
       { when: "Day 1 · v2 + decoder", what: "Lexical blocking + CatBoost; per-entity expected-F0.5 decoder that can predict no match.", score: "0.9624" },

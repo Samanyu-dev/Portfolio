@@ -35,6 +35,13 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
           <a className="rounded-full bg-white px-4 py-1.5 font-semibold text-black" href={c.repo} target="_blank" rel="noopener noreferrer">GitHub</a>
           {c.link && <a className="rounded-full border border-white/30 px-4 py-1.5" href={c.link.href} target="_blank" rel="noopener noreferrer">{c.link.label}</a>}
         </div>
+        {c.team && (
+          <p className="mt-6 text-white/70">
+            Team Fake Conquerors: Samanyu, {c.team.map((t, i) => (
+              <span key={t.name}>{i > 0 && ", "}<a href={t.url} target="_blank" rel="noopener noreferrer" className="text-[var(--primary)] underline">{t.name}</a></span>
+            ))}
+          </p>
+        )}
         {c.timeline && (
           <section className="mt-12">
             <h2 className="mb-4 text-2xl font-medium">Score timeline</h2>

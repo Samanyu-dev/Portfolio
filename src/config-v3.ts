@@ -174,7 +174,7 @@ export const config = {
             repoLink: "https://github.com/Samanyu-dev/stepsai", liveLink: "https://stepsai-smoky.vercel.app"
         },
         {
-            id: 12, title: "oracle-agent", category: "AI/ML", technologies: "Python, MCTS, RL", image: "/images/oracle_agent.png",
+            id: 12, title: "oracle-agent", category: "AI/ML", technologies: "Python, MCTS, RL", image: "/images/real/oracle-agent.jpg",
             description: "Grid navigating AI agent with A* pathfinding and Bayesian sensor fusion for partially observable environments.",
             repoLink: "https://github.com/Samanyu-dev/oracle-agent", liveLink: ""
         },
@@ -189,7 +189,7 @@ export const config = {
             repoLink: "https://github.com/Samanyu-dev/codeforge", liveLink: ""
         },
         {
-            id: 15, title: "crisis_comm_env", category: "AI/ML", technologies: "Python", image: "/images/crisis-com.png",
+            id: 15, title: "crisis_comm_env", category: "AI/ML", technologies: "Python", image: "/images/real/crisis-comm.jpg",
             description: "Multi-turn OpenEnv environment for training and evaluating agents on crisis communication.",
             repoLink: "https://github.com/Samanyu-dev/crisis_comm_env", liveLink: ""
         },
@@ -280,6 +280,34 @@ export const config = {
         }
     ],
     blogs: [
+        {
+            id: 6,
+            title: "Amazon ML Challenge 2026: 389th of 10,000+ Teams in Three Days",
+            date: "September 2026",
+            summary: "How team Fake Conquerors took a noisy multi-country entity-resolution problem from 0.9624 to 0.9864, caught our own leak, and read the data generator.",
+            content: `
+        <p>For three days in September, four of us (team <strong>Fake Conquerors</strong>: me, <a href="https://www.linkedin.com/in/himnish-lalchandani-29a453290/" target="_blank" rel="noopener noreferrer" style="color:#ff9e7a;text-decoration:underline">Himnish</a>, <a href="https://www.linkedin.com/in/sarkar-ankur" target="_blank" rel="noopener noreferrer" style="color:#ff9e7a;text-decoration:underline">Ankur</a> and <a href="https://www.linkedin.com/in/pranshu-suman-6b430a1a8/" target="_blank" rel="noopener noreferrer" style="color:#ff9e7a;text-decoration:underline">Pranshu</a>) lived inside one problem: take noisy business records from two messy sources and decide which ones belong to which real-world business, across the US, India and France. We finished <strong>389th out of 10,000+ teams</strong> (89k+ individuals registered) with a best public score of <strong>0.986382</strong>.</p>
+
+        <h3>The problem</h3>
+        <p>Each of 1.73 million reference businesses could have zero, one or many matching records, and the metric was macro F0.5 per business, so one wrong link hurts more than one missed link. Test also included France, which had no labelled training data at all, and about 40% of the candidate records were deliberate decoys: same name, different legal form, a nearby house number.</p>
+
+        <h3>Day 1: a baseline that works, then a decoder that can say no</h3>
+        <p>We started with lexical blocking (a C++ inverted index over name tokens, trigrams, address tokens and phonetic skeletons) feeding a CatBoost pair scorer. The first real gain was not a better model but a better decision rule: a per-business decoder that picks the set of matches with the best <em>expected</em> F0.5 and is allowed to return nothing. That took us to 0.9624. Better normalisation (legal forms, transliteration of Indian scripts, French and US address abbreviations), dense multilingual retrieval and 63 hand-built features took us to 0.972.</p>
+
+        <h3>Day 2: cross-encoders and the France problem</h3>
+        <p>We added fine-tuned multilingual-e5 cross-encoders that re-read only the uncertain cases (small on a Kaggle T4, large on an AWS A10G). With no French labels, we generated 600k pseudo-labels from our own confident French links, then a second, harder round. That lifted us to 0.9845, but one round hurt France, a reminder that pseudo-labels amplify their own mistakes. Our public score bounced around 0.984 to 0.985 for the rest of the day.</p>
+        <div style="margin: 30px 0;"><img src="/images/real/amazon-ml.png" alt="Public score climb" style="max-width: 100%%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" /></div>
+
+        <h3>Day 3: reading the data generator</h3>
+        <p>Two things changed the outcome. First, we noticed our stage 2 was leaking: we split folds by predicted anchor instead of true owner. Honest validation was 0.98841, lower than the number we had been quoting, so we froze uploads until a leak-free version was ready. Second, we stopped treating the data as natural and audited it as a <em>synthetic</em> dataset. Records with no detectable noise operation were already linked 99.7% correctly, so the remaining loss lived in specific operations. That produced a French acronym rule (a 2 to 4 letter name equal to the initials of a business at the same address, 99.98% precise) and a rescue path for Indian-script names with truncated addresses. Together with a meta-model on generator fingerprints, they took us to 0.986382.</p>
+
+        <h3>What did not work</h3>
+        <p>We measured and rejected a lot: seed ensembles (+0.000008), graph closure (-0.0011), mutual nearest neighbours (-0.0004), and a fine-tuned Qwen2.5-7B judge (AUC 0.69 versus 0.86 for the cross-encoders). Blank-address namesakes turned out to be unresolvable from the data: the best tie-break was no better than chance. Every one of these is logged with its measured result in the repo, so nobody has to re-try them.</p>
+
+        <h3>The team</h3>
+        <p>This was a real four-person effort and I'm grateful to <a href="https://www.linkedin.com/in/himnish-lalchandani-29a453290/" target="_blank" rel="noopener noreferrer" style="color:#ff9e7a;text-decoration:underline">Himnish</a>, <a href="https://www.linkedin.com/in/sarkar-ankur" target="_blank" rel="noopener noreferrer" style="color:#ff9e7a;text-decoration:underline">Ankur</a> and <a href="https://www.linkedin.com/in/pranshu-suman-6b430a1a8/" target="_blank" rel="noopener noreferrer" style="color:#ff9e7a;text-decoration:underline">Pranshu</a> for working through three intense days together. Catching our own validation leak and the push on France were team efforts.</p>
+        <p>Full experiment log, every score and the lessons are in the <a href="https://github.com/Samanyu-dev/amazon-ml-challenge-2026-entity-resolution" target="_blank" rel="noopener noreferrer" style="color:#ff9e7a;text-decoration:underline">GitHub repo</a>, and the day-by-day score timeline is on the <a href="/case-studies/amazon-ml-challenge-2026" style="color:#ff9e7a;text-decoration:underline">case study page</a>.</p>`
+        },
         {
             id: 5,
             title: "Synth: AI Data Layer for Endurance Sports",
