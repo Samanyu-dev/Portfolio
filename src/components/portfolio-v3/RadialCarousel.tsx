@@ -27,8 +27,8 @@ export type WheelItem = {
 
 // Cards sit on a big circle whose centre is below the viewport; scrolling rotates
 // the circle so the cards sweep through the visible upper arc (pinned section).
-const RadialCarousel = ({ id, heading, accent, items, model, modelScale, kind }: {
-  model?: string; modelScale?: number; kind: "project" | "hackathon";
+const RadialCarousel = ({ id, heading, accent, items, model, modelScale, extra, kind }: {
+  model?: string; modelScale?: number; extra?: { src: string; scale?: number; anim?: string; spin?: boolean }; kind: "project" | "hackathon";
   id: string; heading: string; accent: string; items: WheelItem[];
 }) => {
   const root = useRef<HTMLElement>(null);
@@ -77,6 +77,7 @@ const RadialCarousel = ({ id, heading, accent, items, model, modelScale, kind }:
     <section className="rc-section" id={id} ref={(el) => { (root as React.MutableRefObject<HTMLElement | null>).current = el; viewRef(el); }}>
       <h2 className="rc-heading">{heading} <span>{accent}</span></h2>
       {model && <FloatingModel src={model} scale={modelScale} />}
+      {extra && <FloatingModel className="fm-left" fit src={extra.src} scale={extra.scale} anim={extra.anim} spin={extra.spin} />}
       <div className="rc-mask">
         <ul className="rc-wheel" ref={wheel}>
           {items.map((it, i) => {

@@ -29,7 +29,7 @@ const Work = () => {
     title: "And Many More...", badge: "GitHub", href: `https://github.com/${config.social.github}`, external: true, hue: 15,
     description: "30+ more projects across mobile, backend, ML and systems: browse them all on GitHub.",
   });
-  return <RadialCarousel kind="project" id="work" heading="My" accent="Projects" model="/models/3d/rack.glb" modelScale={0.9} items={items} />;
+  return <RadialCarousel kind="project" id="work" heading="My" accent="Projects" model="/models/3d/rack.glb" modelScale={0.9} extra={{ src: "/models/3d/robot.glb", scale: 0.75, anim: "Wave", spin: false }} items={items} />;
 };
 
 export default Work;

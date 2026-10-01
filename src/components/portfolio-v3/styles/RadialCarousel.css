@@ -38,3 +38,4 @@
 .rc-study{right:auto;left:12px}
 .fm{position:absolute;top:120px;right:5vw;width:220px;height:260px;z-index:2;pointer-events:none}
 @media(max-width:1024px){.fm{display:none}}
+.fm-left{right:auto;left:5vw}

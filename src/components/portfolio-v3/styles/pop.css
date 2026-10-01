@@ -1,44 +1,35 @@
-/* Pop-art theme: fixed comic backdrop that pans with scroll, funky outlined type.
-   Skills section (#skills-wrap) opts out and keeps the dark look. */
-.pop-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:#ff1f8e url("/images/bg-pop.png") center var(--bgy,0%)/cover no-repeat}
-.pop{--primary:#ffe600;--accentColor:#ff1f8e;--pop-pink:#ff1f8e;--pop-purple:#7b2ff7;--pop-yellow:#ffe600;--pop-orange:#ff8a00;position:relative;z-index:1}
+/* Dark theme with a live node-graph backdrop. Skills keeps its own video backdrop. */
+.net-bg{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;background:#0b080c}
+.pop{position:relative;z-index:1}
 .pop .about-section,.pop .career-section,.pop .work-section,.pop .rc-section,.pop .blog-section,
-.pop .cta-section,.pop .contact-section,.pop .what-box-in,.pop #github,.pop .landing-section{background:transparent!important}
+.pop .cta-section,.pop .contact-section,.pop #github,.pop .landing-section{background:transparent!important}
 
-/* funky headings: Bangers + thick black outline + hard offset shadow */
-.pop h1,.pop h2,.pop h3,.pop .rc-heading,.pop .about-me h3{
-  font-family:var(--font-bangers),Impact,sans-serif!important;font-weight:400!important;letter-spacing:2px;text-transform:uppercase;
-  color:var(--pop-yellow)!important;-webkit-text-stroke:2.5px #000;paint-order:stroke fill;
-  text-shadow:4px 4px 0 #000,7px 7px 0 var(--pop-pink);transform:rotate(-1.5deg);transition:transform .25s}
-.pop h2:hover,.pop h3:hover{transform:rotate(1.5deg) scale(1.04)}
-.pop h2 span,.pop .rc-heading span{font-family:var(--font-marker),cursive!important;color:#fff!important;text-transform:none;
-  text-shadow:4px 4px 0 #000,7px 7px 0 var(--pop-purple);display:inline-block;transform:rotate(2deg)}
-.pop .landing-intro h1,.pop .landing-intro h2{-webkit-text-stroke:3px #000}
+/* funky headings, dark-theme version: Bangers with a coral/violet glow instead of hard outlines */
+.pop h1,.pop h2,.pop .rc-heading,.pop .chess-title,.pop .about-me h3{
+  font-family:var(--font-bangers),Impact,sans-serif!important;font-weight:400!important;letter-spacing:3px;text-transform:uppercase;
+  color:#fff!important;text-shadow:3px 3px 0 #ff7f50,6px 6px 0 #7b2ff7;transform:rotate(-1.5deg);transition:transform .25s}
+.pop h2:hover{transform:rotate(1.5deg) scale(1.03)}
+.pop h2 span,.pop .rc-heading span,.pop .chess-title span{font-family:var(--font-marker),cursive!important;color:#ffd166!important;text-transform:none;
+  text-shadow:3px 3px 0 #7b2ff7;display:inline-block;transform:rotate(2deg)}
+.pop .about-me h3{font-size:clamp(44px,5vw,76px)}
+.pop .landing-intro h1{font-size:clamp(28px,3vw,44px)!important;letter-spacing:0!important;text-shadow:2px 2px 0 #ff7f50}
 
-/* body copy on the loud background: white speech-bubble panels */
-.pop .about-me .para,.pop .blog-container p,.pop .career-info-box p{font-family:var(--font-space),sans-serif;
-  background:#fff;color:#111!important;border:3px solid #000;border-radius:14px;padding:14px 18px;box-shadow:6px 6px 0 #000}
-.pop .rc-badge{background:#000;border-color:#fff}
-.pop .rc-card-inner{border:3px solid #000;box-shadow:6px 6px 0 #000}
-.pop .rc-gh{background:var(--pop-yellow);border:2px solid #000;box-shadow:2px 2px 0 #000}
-.pop .rc-line{background:var(--pop-pink);height:4px}
-.pop .rc-mask{-webkit-mask-image:none;mask-image:none}
-.pop #github p{color:#fff;-webkit-text-stroke:0;text-shadow:2px 2px 0 #000;font-family:var(--font-marker),cursive;font-size:18px}
+/* cards */
+.pop .rc-card-inner{border:2px solid rgba(255,255,255,.18);box-shadow:0 14px 40px rgba(0,0,0,.6),0 0 0 1px rgba(255,127,80,.12)}
+.pop .rc-card.is-active .rc-card-inner{border-color:#ff7f50;box-shadow:0 14px 40px rgba(0,0,0,.6),0 0 30px rgba(255,127,80,.35)}
+.pop .rc-text h4{font-family:var(--font-bangers),Impact,sans-serif;font-weight:400;font-size:26px;letter-spacing:1px;text-shadow:2px 2px 0 #000}
+.pop .rc-text p{font-family:var(--font-space),sans-serif}
+.pop .rc-gh{background:#ffd166;color:#000}
+.pop .rc-media img,.pop .rc-fallback{filter:none!important}
+.pop #github p{color:#c9c2d4}
+
+/* chess on dark */
+.pop .chess-canvas{border:2px solid rgba(255,255,255,.18);box-shadow:0 14px 40px rgba(0,0,0,.6);background:rgba(20,16,28,.6)}
+.pop .chess-bubble{box-shadow:4px 4px 0 #ff7f50;border-color:#000}
+.pop .chess-side button{box-shadow:3px 3px 0 #7b2ff7}
+.pop .chess-note{color:#c9c2d4;text-shadow:none}
 
 /* skills keeps its own dark world */
-#skills-wrap{--primary:#FF7F50;position:relative;z-index:2;background:#0b080c}
-#skills-wrap h1,#skills-wrap h2,#skills-wrap h3{font-family:inherit;-webkit-text-stroke:0;text-shadow:none;transform:none}
-
-/* fixes */
-#skills-wrap h1,#skills-wrap h2,#skills-wrap h3{font-family:var(--font-space),sans-serif!important;color:#fff!important;-webkit-text-stroke:0!important;text-shadow:none!important;transform:none!important;text-transform:uppercase}
-#skills-wrap h2 span{font-family:var(--font-allura),cursive!important;color:#FF9E7A!important;text-shadow:none!important;transform:none!important}
-.pop .about-me h3{font-size:clamp(44px,5vw,76px)}
-.pop .landing-intro h1{font-size:clamp(28px,3vw,44px)!important;letter-spacing:0!important}
-.pop .landing-intro h2{letter-spacing:1px!important}
-.pop .rc-card-inner{opacity:calc(.8 + var(--near) * .2)}
-.pop .rc-text h4{font-family:var(--font-bangers),Impact,sans-serif;font-weight:400;font-size:26px;letter-spacing:1px;text-shadow:2px 2px 0 #000;-webkit-text-stroke:1px #000;paint-order:stroke fill}
-.pop .rc-text p{font-family:var(--font-space),sans-serif}
-.pop .rc-media img,.pop .rc-fallback{filter:none!important}
-.pop .rc-shade{background:linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,0) 55%);opacity:1}
-.pop .rc-card:hover .rc-shade{background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.35))}
+#skills-wrap{position:relative;z-index:2;background:#0b080c}
+#skills-wrap h1,#skills-wrap h2{font-family:var(--font-space),sans-serif!important;color:#fff!important;text-shadow:none!important;transform:none!important;letter-spacing:4px}
+#skills-wrap h2 span{font-family:var(--font-allura),cursive!important;color:var(--primary,#FF9E7A)!important;text-shadow:none!important;transform:none!important}

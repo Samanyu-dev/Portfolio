@@ -109,27 +109,27 @@ export const config = {
     ],
     projects: [
         {
-            id: 33, title: "amazon-ml-entity-resolution", category: "AI/ML", technologies: "Python, C++, CatBoost, transformers", image: "/images/covers/amazon-ml.png",
+            id: 33, title: "amazon-ml-entity-resolution", category: "AI/ML", technologies: "Python, C++, CatBoost, transformers", image: "/images/real/amazon-ml.png",
             description: "Amazon ML Challenge 2026: multilingual business entity resolution, scoring 0.986 macro F0.5 on the public leaderboard.",
             repoLink: "https://github.com/Samanyu-dev/amazon-ml-challenge-2026-entity-resolution", liveLink: ""
         },
         {
-            id: 34, title: "infra-incident-copilot", category: "Cloud", technologies: "TypeScript, Cloudflare Workers, Durable Objects", image: "/images/covers/incident-copilot.png",
+            id: 34, title: "infra-incident-copilot", category: "Cloud", technologies: "TypeScript, Cloudflare Workers, Durable Objects", image: "/images/real/incident-copilot.jpg",
             description: "On-call triage agent: sequenced diagnostics, LLM synthesis and persistent incident memory on Cloudflare.",
             repoLink: "https://github.com/Samanyu-dev/infra-incident-copilot", liveLink: "https://infra-incident-copilot.infra-incident-copilot.workers.dev"
         },
         {
-            id: 1, title: "gomarg", category: "AI/ML", technologies: "Next.js, PostgreSQL, Apollo API, SDR", image: "/images/gomarg_img_1781963847630.png",
+            id: 1, title: "gomarg", category: "AI/ML", technologies: "Next.js, PostgreSQL, Apollo API, SDR", image: "/images/real/gomarg.jpg",
             description: "An AI sales agent that autonomously sources leads via Apollo, researches prospects, and drafts highly personalized outreach sequences.",
             repoLink: "https://github.com/Samanyu-dev/gomarg", liveLink: ""
         },
         {
-            id: 2, title: "AIgnition", category: "Python", technologies: "Python", image: "/images/aignition_img_1781963861234.png",
+            id: 2, title: "AIgnition", category: "Python", technologies: "Python", image: "/images/real/aignition.png",
             description: "Hackathon project.",
             repoLink: "https://github.com/Samanyu-dev/AIgnition", liveLink: ""
         },
         {
-            id: 3, title: "m-vis", category: "Systems", technologies: "Rust", image: "/images/m-vis.png",
+            id: 3, title: "m-vis", category: "Systems", technologies: "Rust", image: "/images/real/m-vis.png",
             description: "Lightweight cross-platform memory visualizer tool.",
             repoLink: "https://github.com/Samanyu-dev/m-vis", liveLink: ""
         },
@@ -164,12 +164,12 @@ export const config = {
             repoLink: "https://github.com/Samanyu-dev/dream11_dashboard", liveLink: ""
         },
         {
-            id: 10, title: "Aether", category: "Tooling", technologies: "TypeScript", image: "/images/aether.png",
+            id: 10, title: "Aether", category: "Tooling", technologies: "TypeScript", image: "/images/real/aether.jpg",
             description: "A highly optimized, lightweight developer platform for tracing multi agent workflows, diagnosing hallucinations.",
             repoLink: "https://github.com/Samanyu-dev/Aether", liveLink: ""
         },
         {
-            id: 11, title: "stepsai", category: "AI/ML", technologies: "Python", image: "/images/stepsai.png",
+            id: 11, title: "stepsai", category: "AI/ML", technologies: "Python", image: "/images/real/stepsai.jpg",
             description: "AI Interview agent project built for a hackathon.",
             repoLink: "https://github.com/Samanyu-dev/stepsai", liveLink: "https://stepsai-smoky.vercel.app"
         },
@@ -184,7 +184,7 @@ export const config = {
             repoLink: "https://github.com/Samanyu-dev/echo", liveLink: ""
         },
         {
-            id: 14, title: "codeforge", category: "AI/ML", technologies: "React, Docker", image: "/images/codeforge_img_1781963983822.png",
+            id: 14, title: "codeforge", category: "AI/ML", technologies: "React, Docker", image: "/images/real/codeforge.jpg",
             description: "A multi-agent “AI engineering org” with a cinematic command-center UI, realtime orchestration backend.",
             repoLink: "https://github.com/Samanyu-dev/codeforge", liveLink: ""
         },
@@ -204,12 +204,12 @@ export const config = {
             repoLink: "https://github.com/Samanyu-dev/durgapuja", liveLink: ""
         },
         {
-            id: 18, title: "robot_vision", category: "Robotics", technologies: "Python, OpenCV", image: "/images/robotic_vision.png",
+            id: 18, title: "robot_vision", category: "Robotics", technologies: "Python, OpenCV", image: "/images/real/robot-vision.jpg",
             description: "Integrates concepts from robotics, kinematics, and computer vision to demonstrate how a robot perceives its environment.",
             repoLink: "https://github.com/Samanyu-dev/robot_vision", liveLink: "https://samanyu-dev.github.io/robot_vision/demo_landing.html"
         },
         {
-            id: 19, title: "Loomlane", category: "Backend", technologies: "TypeScript", image: "/images/loomlane_img_1781964025061.png",
+            id: 19, title: "Loomlane", category: "Backend", technologies: "TypeScript", image: "/images/real/loomlane.jpg",
             description: "Customised university merchandise system with a secure, scalable commerce backbone.",
             repoLink: "https://github.com/Samanyu-dev/Loomlane_sam1", liveLink: ""
         },

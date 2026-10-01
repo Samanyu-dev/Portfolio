@@ -31,11 +31,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "playground-series-s6e9",
     title: "Kaggle Playground S6E9: Will Buy EV",
-    result: "Rank 56 of 3,578 teams (top 2%)",
-    summary: "Tabular binary classification scored by ROC-AUC. The work was in validation discipline: generator-aware features, cross-fitted target encoding and a CV-validated ensemble.",
+    result: "Final rank 45 of 3,578 teams (top 2%), up 16 from the public board",
+    summary: "Tabular binary classification scored by ROC-AUC. Played as team Fake Conquerors with 18 submissions. The winner scored 0.94602, just 0.00035 AUC ahead. The work was in validation discipline: generator-aware features, cross-fitted target encoding and a CV-validated ensemble.",
     repo: "https://github.com/Samanyu-dev/playground-s6e9",
     link: { label: "Competition", href: "https://www.kaggle.com/competitions/playground-series-s6e9" },
-    stats: [{ label: "Rank", value: "56" }, { label: "Teams", value: "3,578" }, { label: "Blend OOF AUC", value: "0.94668" }],
+    stats: [{ label: "Final rank", value: "45" }, { label: "Public to private", value: "+16" }, { label: "Private score", value: "0.94567" }, { label: "Gap to 1st (0.94602)", value: "0.00035" }, { label: "Teams", value: "3,578" }],
     sections: [
       { heading: "Models", body: "XGBoost, LightGBM, CatBoost, logistic regression, ridge and an MLP, each over generator-aware feature blocks with cross-fitted multi-smoothing target encoding." },
       { heading: "Ensembling", body: "Caruana hill-climbing on rank-transformed OOF predictions, validated by 5-fold meta-CV: selection on four meta-folds, scoring on the fifth. A LightGBM stacker was tested on the same folds." },
